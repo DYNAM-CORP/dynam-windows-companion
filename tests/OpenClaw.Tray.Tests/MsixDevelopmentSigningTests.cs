@@ -324,7 +324,7 @@ public sealed class MsixDevelopmentSigningTests
     }
 
     [Fact]
-    public void PackageDisplayNames_MatchThePartnerCenterReservation()
+    public void PackageDisplayNames_UseDynamBranding()
     {
         var root = TestRepositoryPaths.GetRepositoryRoot();
         var manifest = File.ReadAllText(Path.Combine(
@@ -332,14 +332,13 @@ public sealed class MsixDevelopmentSigningTests
         var project = File.ReadAllText(Path.Combine(
             root, "src", "OpenClaw.Tray.WinUI", "OpenClaw.Tray.WinUI.csproj"));
 
-        // "OpenClaw" is the reserved Partner Center name, and these strings are what the
-        // Store listing, the Start menu tile, and Startup Apps display. Package identity is
-        // Identity/@Name plus @Publisher, so display names are labels only and changing them
-        // breaks nothing, which is precisely why a silent revert would otherwise go unnoticed.
-        Assert.Contains("<DisplayName>OpenClaw</DisplayName>", manifest);
-        Assert.Contains(@"DisplayName=""OpenClaw""", manifest);
+        // Display names are DYNAM labels shown by the Windows shell and Startup Apps.
+        // The preserved internal package identity does not confer ownership of the
+        // upstream Store reservation; DYNAM distributes Inno installers and ZIPs.
+        Assert.Contains("<DisplayName>DYNAM Windows Companion</DisplayName>", manifest);
+        Assert.Contains(@"DisplayName=""DYNAM Windows Companion""", manifest);
         Assert.DoesNotContain("OpenClaw Companion", manifest);
-        Assert.Contains(@"DisplayName=""OpenClaw (Dev)""", project);
+        Assert.Contains(@"DisplayName=""DYNAM Windows Companion (Dev)""", project);
     }
 
     [Fact]

@@ -73,6 +73,13 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Validate DYNAM deployment contracts
+      shell: pwsh
+      run: |
+        python -m unittest discover -s deployment -p 'test_*.py'
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+        ./scripts/Test-DynamSigningConfiguration.Tests.ps1
+
     - name: Ensure .squad stays untracked
       shell: bash
       run: |
@@ -955,7 +962,7 @@ jobs:
       contents: write
       id-token: write
     concurrency:
-      group: openclaw-windows-node-release
+      group: dynam-windows-companion-release
       cancel-in-progress: false
 
     steps:
@@ -981,6 +988,15 @@ jobs:
         }
 
     # Sign release artifacts on the x64 runner (ARM64 runner can't run the signing dlib).
+    - name: Require DYNAM signing configuration
+      shell: pwsh
+      env:
+        DYNAM_SIGNING_ENDPOINT: ${{ vars.DYNAM_SIGNING_ENDPOINT }}
+        DYNAM_SIGNING_ACCOUNT: ${{ vars.DYNAM_SIGNING_ACCOUNT }}
+        DYNAM_SIGNING_PROFILE: ${{ vars.DYNAM_SIGNING_PROFILE }}
+        DYNAM_SIGNER_SUBJECT: ${{ vars.DYNAM_SIGNER_SUBJECT }}
+      run: ./scripts/Test-DynamSigningConfiguration.ps1 -Endpoint $env:DYNAM_SIGNING_ENDPOINT -Account $env:DYNAM_SIGNING_ACCOUNT -Profile $env:DYNAM_SIGNING_PROFILE -SignerSubject $env:DYNAM_SIGNER_SUBJECT
+
     - name: Azure Login for Release Signing
       uses: azure/login@v3
       with:
@@ -1027,9 +1043,9 @@ jobs:
     - name: Sign x64 OpenClaw Binaries
       uses: azure/artifact-signing-action@v2
       with:
-        endpoint: https://eus.codesigning.azure.net/
-        signing-account-name: openclaw
-        certificate-profile-name: openclaw
+        endpoint: ${{ vars.DYNAM_SIGNING_ENDPOINT }}
+        signing-account-name: ${{ vars.DYNAM_SIGNING_ACCOUNT }}
+        certificate-profile-name: ${{ vars.DYNAM_SIGNING_PROFILE }}
         files-folder: signing-input-x64
         files-folder-filter: exe,dll
         files-folder-depth: 1
@@ -1040,9 +1056,9 @@ jobs:
     - name: Sign ARM64 OpenClaw Binaries
       uses: azure/artifact-signing-action@v2
       with:
-        endpoint: https://eus.codesigning.azure.net/
-        signing-account-name: openclaw
-        certificate-profile-name: openclaw
+        endpoint: ${{ vars.DYNAM_SIGNING_ENDPOINT }}
+        signing-account-name: ${{ vars.DYNAM_SIGNING_ACCOUNT }}
+        certificate-profile-name: ${{ vars.DYNAM_SIGNING_PROFILE }}
         files-folder: signing-input-arm64
         files-folder-filter: exe,dll
         files-folder-depth: 1
@@ -1052,11 +1068,11 @@ jobs:
 
     - name: Verify x64 Release Binary Signing Policy
       shell: pwsh
-      run: .\scripts\Test-ReleaseExecutableSignatures.ps1 -PayloadPath artifacts/tray-win-x64 -RequireSignedOpenClaw
+      run: .\scripts\Test-ReleaseExecutableSignatures.ps1 -PayloadPath artifacts/tray-win-x64 -RequireSignedOpenClaw -OpenClawSignerSubject "${{ vars.DYNAM_SIGNER_SUBJECT }}"
 
     - name: Verify ARM64 Release Binary Signing Policy
       shell: pwsh
-      run: .\scripts\Test-ReleaseExecutableSignatures.ps1 -PayloadPath artifacts/tray-win-arm64 -RequireSignedOpenClaw
+      run: .\scripts\Test-ReleaseExecutableSignatures.ps1 -PayloadPath artifacts/tray-win-arm64 -RequireSignedOpenClaw -OpenClawSignerSubject "${{ vars.DYNAM_SIGNER_SUBJECT }}"
 
     - name: Verify x64 Release Native Dependencies
       shell: pwsh
@@ -1096,11 +1112,11 @@ jobs:
     # on the windows-11-arm runner; see src/Directory.Build.targets).
     - name: Create x64 Release ZIP
       run: |
-        Compress-Archive -Path artifacts/tray-win-x64/* -DestinationPath OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-x64.zip
+        Compress-Archive -Path artifacts/tray-win-x64/* -DestinationPath DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-x64.zip
 
     - name: Create arm64 Release ZIP
       run: |
-        Compress-Archive -Path artifacts/tray-win-arm64/* -DestinationPath OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-arm64.zip
+        Compress-Archive -Path artifacts/tray-win-arm64/* -DestinationPath DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-arm64.zip
 
     # Inno Setup installer for x64
     - name: Install Inno Setup
@@ -1130,9 +1146,9 @@ jobs:
     - name: Sign Installers
       uses: azure/artifact-signing-action@v2
       with:
-        endpoint: https://eus.codesigning.azure.net/
-        signing-account-name: openclaw
-        certificate-profile-name: openclaw
+        endpoint: ${{ vars.DYNAM_SIGNING_ENDPOINT }}
+        signing-account-name: ${{ vars.DYNAM_SIGNING_ACCOUNT }}
+        certificate-profile-name: ${{ vars.DYNAM_SIGNING_PROFILE }}
         files-folder: Output
         files-folder-filter: exe
         file-digest: SHA256
@@ -1150,25 +1166,34 @@ jobs:
         -Tag $env:RELEASE_TAG
         -GitHubToken $env:GH_TOKEN
 
+    - name: Generate DYNAM release manifest
+      if: needs.metadata.outputs.isPrerelease == 'false' && needs.metadata.outputs.isStableCorrection == 'false'
+      shell: pwsh
+      run: |
+        ./scripts/New-DynamReleaseManifest.ps1 -Version "${{ needs.metadata.outputs.semVer }}" -SourceCommit "${{ github.sha }}" -SignerSubject "${{ vars.DYNAM_SIGNER_SUBJECT }}"
+        python deployment/companion_contract.py validate-release Output/DYNAMWindowsCompanion-release.json
+
     - name: Create Release
       uses: softprops/action-gh-release@v3
       with:
         generate_release_notes: true
         files: |
-          Output/OpenClawCompanion-Setup-x64.exe
-          Output/OpenClawCompanion-Setup-arm64.exe
-          OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-x64.zip
-          OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-arm64.zip
+          Output/DYNAMWindowsCompanion-release.json
+          Output/SHA256SUMS
+          Output/DYNAMWindowsCompanion-Setup-x64.exe
+          Output/DYNAMWindowsCompanion-Setup-arm64.exe
+          DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-x64.zip
+          DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-arm64.zip
         prerelease: ${{ needs.metadata.outputs.isPrerelease }}
         make_latest: ${{ needs.metadata.outputs.isPrerelease == 'true' && 'false' || 'true' }}
         body: |
-          ## OpenClaw Windows Hub ${{ github.ref_name }}
+          ## DYNAM Windows Companion ${{ github.ref_name }}
 
           ### Downloads
-          - **Installer (x64)**: `OpenClawCompanion-Setup-x64.exe` - Intel/AMD 64-bit
-          - **Installer (ARM64)**: `OpenClawCompanion-Setup-arm64.exe` - Windows on ARM (Surface, etc.)
-          - **Portable x64**: `OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-x64.zip`
-          - **Portable ARM64**: `OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-arm64.zip`
+          - **Installer (x64)**: `DYNAMWindowsCompanion-Setup-x64.exe` - Intel/AMD 64-bit
+          - **Installer (ARM64)**: `DYNAMWindowsCompanion-Setup-arm64.exe` - Windows on ARM (Surface, etc.)
+          - **Portable x64**: `DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-x64.zip`
+          - **Portable ARM64**: `DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-arm64.zip`
 
           ### Features
           - 🦞 System tray integration with gateway status

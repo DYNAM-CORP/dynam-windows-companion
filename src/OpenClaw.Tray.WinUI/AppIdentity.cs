@@ -8,10 +8,10 @@ internal static class AppIdentity
 {
 #if DEV_BUILD
     /// <summary>Human-visible app name shown in tray tooltips, window titles, and notifications.</summary>
-    public const string DisplayName = "OpenClaw Companion (Dev)";
+    public const string DisplayName = "DYNAM Windows Companion (Dev)";
 
     /// <summary>Short name used in tray tooltip prefix.</summary>
-    public const string TrayName = "OpenClaw Tray (Dev)";
+    public const string TrayName = "DYNAM Windows Companion (Dev)";
 
     /// <summary>
     /// Win32 AppUserModelID used for notifications and shell grouping. This applies to
@@ -54,10 +54,10 @@ internal static class AppIdentity
     public static bool IsDev => true;
 #else
     /// <summary>Human-visible app name shown in tray tooltips, window titles, and notifications.</summary>
-    public const string DisplayName = "OpenClaw Companion";
+    public const string DisplayName = "DYNAM Windows Companion";
 
     /// <summary>Short name used in tray tooltip prefix.</summary>
-    public const string TrayName = "OpenClaw Tray";
+    public const string TrayName = "DYNAM Windows Companion";
 
     /// <summary>
     /// Win32 AppUserModelID used for notifications and shell grouping. This applies to

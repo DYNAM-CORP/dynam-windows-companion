@@ -28,8 +28,8 @@ internal sealed class TrayMenuPresenter
         items.Add(new TrayMenuElement
         {
             Kind = TrayMenuElementKind.BrandHeader,
-            Text = "OpenClaw",
-            AutomationName = "OpenClaw",
+            Text = "DYNAM",
+            AutomationName = "DYNAM Windows Companion",
         });
         items.Add(BuildDashboardGlance());
 
