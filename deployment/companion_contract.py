@@ -86,6 +86,9 @@ def validate_release(manifest):
         require(signing["status"] == "signed", "Unsigned installers cannot enter the client channel")
         require(isinstance(signing["publisher"], str) and signing["publisher"].strip(),
                 "Missing signing publisher")
+        require("dynam" in signing["publisher"].lower()
+                and "openclaw" not in signing["publisher"].lower(),
+                "Unexpected DYNAM signing publisher")
         require(isinstance(signing["certificateThumbprint"], str)
                 and re.fullmatch(r"(?:[a-fA-F0-9]{40}|[a-fA-F0-9]{64})",
                                  signing["certificateThumbprint"]), "Invalid certificate thumbprint")

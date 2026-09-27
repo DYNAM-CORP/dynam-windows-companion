@@ -55,7 +55,7 @@ class ReleaseTests(unittest.TestCase):
             deployment_plan(release_fixture(), runtime_fixture(), "x64", policy)
 
     def test_upstream_latest_unsigned_and_duplicate_architecture_are_rejected(self):
-        for mutation in ("upstream", "latest", "unsigned", "duplicate", "bad-hash", "secret-field"):
+        for mutation in ("upstream", "latest", "unsigned", "foreign-publisher", "upstream-publisher", "duplicate", "bad-hash", "secret-field"):
             with self.subTest(mutation=mutation):
                 release = release_fixture()
                 artifact = release["artifacts"][0]
@@ -65,6 +65,10 @@ class ReleaseTests(unittest.TestCase):
                     artifact["installerUrl"] = artifact["installerUrl"].replace("download/v2026.9.27", "latest/download")
                 elif mutation == "unsigned":
                     artifact["signing"]["status"] = "unsigned"
+                elif mutation == "foreign-publisher":
+                    artifact["signing"]["publisher"] = "CN=Synthetic Other Publisher"
+                elif mutation == "upstream-publisher":
+                    artifact["signing"]["publisher"] = "CN=OpenClaw Foundation, O=DYNAM Synthetic"
                 elif mutation == "duplicate":
                     release["artifacts"].append(copy.deepcopy(artifact))
                 elif mutation == "bad-hash":
