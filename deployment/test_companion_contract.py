@@ -18,7 +18,7 @@ def release_fixture():
             "architecture": "x64",
             "installerUrl": "https://github.com/DYNAM-CORP/dynam-windows-companion/releases/download/v2026.9.27/DYNAMWindowsCompanion-Setup-x64.exe",
             "sha256": "b" * 64,
-            "signing": {"status": "signed", "publisher": "Synthetic test publisher",
+            "signing": {"status": "signed", "publisher": "DYNAM Synthetic test publisher",
                         "certificateThumbprint": "c" * 40}
         }]
     }
