@@ -88,8 +88,10 @@ The server must:
   or the runtime changes. A replay must fail before minting another setup code.
 - Mint the setup code inside the selected runtime using `openclaw qr --limited`
   and that runtime's verified public WSS URL. Do not reuse another client's code.
-  Capture its secret output privately. Limit the issued bootstrap TTL to the
-  invitation expiry and report the actual earlier expiry if needed.
+  Capture its secret output privately. Redeem the invitation before minting a
+  fresh code, then report the code's embedded expiration exactly. The installed
+  CLI issues a fixed ten-minute bootstrap and has no shorter TTL flag; ending
+  the portal invitation does not shorten an already issued code.
 - Return the private response described by
   `deployment/enrollment-response.schema.json` with cache disabled. Never place
   it in a shared cache. Audit safe issuance/redemption/device identifiers only.
@@ -99,14 +101,17 @@ The server must:
   Revoke unused bootstrap credentials where the gateway supports it; otherwise
   retain the short expiry and block revoked native admission at the server.
 
-The upstream setup code is base64url JSON `{ "url": ..., "bootstrapToken": ... }`.
+The upstream setup code is base64url JSON
+`{ "url": ..., "bootstrapToken": ..., "expiresAtMs": ... }`.
 It is not encrypted. The opaque token carries server-enforced profiles; the code
 does not reveal which profile was minted. The source decoder limits the code to
-2048 characters and the token to 512 characters. The upstream documented default
-bootstrap TTL is ten minutes, bound to the first device ID/public key that uses
-it. Same-device retries and additional role handoff are permitted. That binding
-is **not** an exactly-once invitation exchange. DYNAM must implement the exchange
-above and prove expiry/replay behavior against the installed gateway version.
+2048 characters and the token to 512 characters. The validator requires the
+private response's `expiresAt` to equal the embedded millisecond expiry and be
+within ten minutes. The upstream bootstrap is bound to the first device ID/public
+key that uses it. Same-device retries and additional role handoff are permitted.
+That binding is **not** an exactly-once invitation exchange. DYNAM must implement
+the exchange above and prove expiry/replay behavior against the installed gateway
+version.
 
 ## Operator, node and native admission
 

@@ -185,10 +185,21 @@ def validate_enrollment(response, workspace_id, runtime_id, gateway_url, now=Non
         payload = json.loads(base64.urlsafe_b64decode(code + "=" * (-len(code) % 4)))
     except (ValueError, UnicodeDecodeError):
         raise ContractError("Invalid setup code encoding") from None
-    fields(payload, ("url", "bootstrapToken"), "setup code")
+    fields(payload, ("url", "bootstrapToken", "expiresAtMs"), "setup code")
     require(payload["url"] == gateway_url, "Setup code gateway does not match the selected runtime")
     require(isinstance(payload["bootstrapToken"], str)
             and 1 <= len(payload["bootstrapToken"]) <= 512, "Invalid bootstrap credential")
+    expires_at_ms = payload["expiresAtMs"]
+    require(type(expires_at_ms) is int and expires_at_ms > 0,
+            "Invalid setup code expiration")
+    try:
+        code_expires = datetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(milliseconds=expires_at_ms)
+    except OverflowError:
+        raise ContractError("Invalid setup code expiration") from None
+    require(current < code_expires <= current + LIFETIME,
+            "Setup code is expired or exceeds ten minutes")
+    require(expires == code_expires,
+            "Enrollment expiration does not match the setup code")
     return {"valid": True, "purpose": "windows-companion", "expiresAt": response["expiresAt"]}
 
 

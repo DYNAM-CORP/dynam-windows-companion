@@ -105,15 +105,21 @@ class EnrollmentTests(unittest.TestCase):
     def setUp(self):
         self.now = datetime(2026, 9, 27, tzinfo=timezone.utc)
         self.gateway = "wss://native.example.com/runtime"
-        code = base64.urlsafe_b64encode(json.dumps({
-            "url": self.gateway, "bootstrapToken": "synthetic-bootstrap-credential"
-        }).encode()).decode().rstrip("=")
+        self.code_expiry = self.now + timedelta(minutes=5)
+        code = self.encode_code({
+            "url": self.gateway, "bootstrapToken": "synthetic-bootstrap-credential",
+            "expiresAtMs": int(self.code_expiry.timestamp() * 1000)
+        })
         self.response = {
             "schemaVersion": 1, "purpose": "windows-companion",
             "workspaceId": "synthetic-workspace", "runtimeId": "synthetic-runtime",
             "gatewayUrl": self.gateway, "setupCode": code,
-            "expiresAt": (self.now + timedelta(minutes=5)).isoformat()
+            "expiresAt": self.code_expiry.isoformat()
         }
+
+    @staticmethod
+    def encode_code(payload):
+        return base64.urlsafe_b64encode(json.dumps(payload).encode()).decode().rstrip("=")
 
     def validate(self):
         return validate_enrollment(self.response, "synthetic-workspace", "synthetic-runtime",
@@ -138,11 +144,34 @@ class EnrollmentTests(unittest.TestCase):
                 with self.assertRaises(ContractError):
                     self.validate()
                 self.response[field] = original
-        self.response["setupCode"] = base64.urlsafe_b64encode(json.dumps({
-            "url": "wss://other.example.com/runtime", "bootstrapToken": "synthetic"
-        }).encode()).decode().rstrip("=")
+        self.response["setupCode"] = self.encode_code({
+            "url": "wss://other.example.com/runtime", "bootstrapToken": "synthetic",
+            "expiresAtMs": int(self.code_expiry.timestamp() * 1000)
+        })
         with self.assertRaises(ContractError):
             self.validate()
+
+    def test_setup_code_expiry_must_match_the_reported_valid_window(self):
+        base = {"url": self.gateway, "bootstrapToken": "synthetic-bootstrap-credential",
+                "expiresAtMs": int(self.code_expiry.timestamp() * 1000)}
+        for mutation in ("missing", "boolean", "string", "expired", "too-long", "mismatch"):
+            with self.subTest(mutation=mutation):
+                payload = copy.deepcopy(base)
+                if mutation == "missing":
+                    del payload["expiresAtMs"]
+                elif mutation == "boolean":
+                    payload["expiresAtMs"] = True
+                elif mutation == "string":
+                    payload["expiresAtMs"] = str(base["expiresAtMs"])
+                elif mutation == "expired":
+                    payload["expiresAtMs"] = int(self.now.timestamp() * 1000)
+                elif mutation == "too-long":
+                    payload["expiresAtMs"] = int((self.now + timedelta(minutes=11)).timestamp() * 1000)
+                else:
+                    payload["expiresAtMs"] -= 1000
+                self.response["setupCode"] = self.encode_code(payload)
+                with self.assertRaises(ContractError):
+                    self.validate()
 
 
 if __name__ == "__main__":
