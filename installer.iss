@@ -1,4 +1,4 @@
-; OpenClaw Companion Inno Setup Script (WinUI version)
+; DYNAM Windows Companion Inno Setup Script (WinUI version)
 ; Pass /DDevBuild=1 to produce a side-by-side dev installer.
 #ifdef DevBuild
   #define MyAppName "DYNAM Windows Companion (Dev)"
@@ -194,7 +194,7 @@ begin
     // moving to the Store package) must not lose their gateway by pressing Enter.
     LocalGatewayCleanupRequested :=
       MsgBox(
-        'Do you also want to remove the OpenClaw local WSL gateway?' + #13#10#13#10 +
+        'Do you also want to remove the DYNAM Windows Companion local WSL gateway?' + #13#10#13#10 +
         'Choose Yes to unregister the {#MyDistroName} WSL distro and remove generated local gateway state.' + #13#10 +
         'Choose No to leave the local gateway and generated local state on this computer.',
         mbConfirmation,
@@ -290,9 +290,9 @@ begin
 
     Retry :=
       MsgBox(
-        'OpenClaw could not remove the local WSL gateway.' + #13#10#13#10 +
+        'DYNAM Windows Companion could not remove the local WSL gateway.' + #13#10#13#10 +
         'Exit code: ' + IntToStr(ResultCode) + #13#10#13#10 +
-        'Select Retry to try again, or Cancel to continue uninstalling OpenClaw and leave local gateway state on disk.',
+        'Select Retry to try again, or Cancel to continue uninstalling DYNAM Windows Companion and leave local gateway state on disk.',
         mbError,
         MB_RETRYCANCEL) = IDRETRY;
   until not Retry;

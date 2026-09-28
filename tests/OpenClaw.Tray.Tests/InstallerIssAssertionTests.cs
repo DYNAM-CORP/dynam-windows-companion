@@ -79,6 +79,13 @@ public sealed class InstallerIssAssertionTests
         Assert.Contains("UninstallSilent()", iss);
         Assert.Contains("LocalGatewayCleanupRequested := True", iss);
         Assert.Contains("{#MyDistroName} WSL distro", iss);
+        Assert.Contains("DYNAM Windows Companion local WSL gateway", iss);
+        Assert.Contains("DYNAM Windows Companion could not remove the local WSL gateway.", iss);
+        Assert.Contains("uninstalling DYNAM Windows Companion", iss);
+        Assert.Contains(@"#define MyAutoStartName ""OpenClawTray""", iss);
+        Assert.Contains(@"#define MyStartupTaskName ""OpenClaw Companion""", iss);
+        Assert.Contains(@"#define MyAutoStartName ""OpenClawTray-Dev""", iss);
+        Assert.Contains(@"#define MyStartupTaskName ""OpenClaw Companion (Dev)""", iss);
         Assert.Contains("MB_YESNO or MB_DEFBUTTON2", iss);
         Assert.Contains("ExpandConstant('{sys}\\WindowsPowerShell\\v1.0\\powershell.exe')", iss);
         Assert.Contains("ewWaitUntilTerminated", iss);
