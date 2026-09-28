@@ -13,8 +13,8 @@ namespace OpenClaw.Tray.UITests;
 [Collection(AccessibilityCollection.Name)]
 public sealed class SessionTitleBehaviorProofTests
 {
-    private const string RawTitle = "OpenClaw Windows Tray";
-    private const string ForkTitle = "OpenClaw Windows Tray (2)";
+    private const string RawTitle = "DYNAM Windows Companion";
+    private const string ForkTitle = "DYNAM Windows Companion (2)";
     private static readonly TimeSpan UiTimeout = TimeSpan.FromSeconds(15);
 
     private readonly AccessibilityAppFixture _app;
@@ -84,34 +84,23 @@ public sealed class SessionTitleBehaviorProofTests
 
     private string WaitForTitleCount(string title, int expectedCount)
     {
-        var condition = new AndCondition(
-            new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Text),
-            new PropertyCondition(AutomationElement.NameProperty, title));
-
         WaitUntil(() =>
         {
             var hub = AutomationElement.FromHandle(_app.HubWindowHandle);
-            return hub.FindAll(TreeScope.Descendants, condition).Count == expectedCount;
-        }, $"UIA title '{title}' to appear exactly {expectedCount} time(s)");
+            return FindSessionTitleElements(hub, title).Count == expectedCount;
+        }, $"session row title '{title}' to appear exactly {expectedCount} time(s)");
 
         var finalHub = AutomationElement.FromHandle(_app.HubWindowHandle);
-        var matches = finalHub.FindAll(TreeScope.Descendants, condition);
+        var matches = FindSessionTitleElements(finalHub, title);
         Assert.Equal(expectedCount, matches.Count);
-        return Assert.Single(
-            Enumerable.Range(0, matches.Count)
-                .Select(index => matches[index].Current.Name));
+        return Assert.Single(matches.Select(element => element.Current.Name));
     }
 
     private void InvokeOpenChat(string visibleTitle)
     {
-        var titleCondition = new AndCondition(
-            new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Text),
-            new PropertyCondition(AutomationElement.NameProperty, visibleTitle));
         var hub = AutomationElement.FromHandle(_app.HubWindowHandle);
-        var titleElement = hub.FindFirst(TreeScope.Descendants, titleCondition);
-        Assert.NotNull(titleElement);
-
-        var row = FindAncestor(titleElement!, ControlType.ListItem);
+        var titleElement = Assert.Single(FindSessionTitleElements(hub, visibleTitle));
+        var row = FindAncestor(titleElement, ControlType.ListItem);
         Assert.NotNull(row);
 
         var buttonCondition = new AndCondition(
@@ -121,6 +110,20 @@ public sealed class SessionTitleBehaviorProofTests
         Assert.NotNull(button);
         Assert.True(button!.TryGetCurrentPattern(InvokePattern.Pattern, out var pattern));
         Assert.IsType<InvokePattern>(pattern).Invoke();
+    }
+
+    private static IReadOnlyList<AutomationElement> FindSessionTitleElements(
+        AutomationElement hub,
+        string title)
+    {
+        var condition = new AndCondition(
+            new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Text),
+            new PropertyCondition(AutomationElement.NameProperty, title));
+        var matches = hub.FindAll(TreeScope.Descendants, condition);
+        return Enumerable.Range(0, matches.Count)
+            .Select(index => matches[index])
+            .Where(element => FindAncestor(element, ControlType.ListItem) is not null)
+            .ToArray();
     }
 
     private string WaitForSelectedSession(string expectedRouteTitle)
