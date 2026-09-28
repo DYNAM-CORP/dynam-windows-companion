@@ -12,9 +12,9 @@ public sealed class ReleaseSigningWorkflowTests
         Assert.Contains("environment: release-signing", workflow);
         Assert.Contains("id-token: write", workflow);
         Assert.Contains("uses: azure/artifact-signing-action@v2", workflow);
-        Assert.Contains("endpoint: https://eus.codesigning.azure.net/", workflow);
-        Assert.Contains("signing-account-name: openclaw", workflow);
-        Assert.Contains("certificate-profile-name: openclaw", workflow);
+        Assert.Contains("endpoint: ${{ vars.DYNAM_SIGNING_ENDPOINT }}", workflow);
+        Assert.Contains("signing-account-name: ${{ vars.DYNAM_SIGNING_ACCOUNT }}", workflow);
+        Assert.Contains("certificate-profile-name: ${{ vars.DYNAM_SIGNING_PROFILE }}", workflow);
         Assert.Contains("Stage x64 OpenClaw Binaries for Signing", workflow);
         Assert.Contains("OpenClaw.Tray.WinUI.exe", workflow);
         Assert.Contains("OpenClaw.Tray.WinUI.dll", workflow);
@@ -91,7 +91,7 @@ public sealed class ReleaseSigningWorkflowTests
         Assert.Contains("/DvcRedist=vc_redist.arm64.exe", workflow);
         Assert.DoesNotContain("copy vc_redist.x64.exe publish-x64", workflow);
         Assert.DoesNotContain("copy vc_redist.x64.exe publish-arm64", workflow);
-        Assert.Contains("OpenClawTray-${{ needs.metadata.outputs.semVer }}-win-arm64.zip", workflow);
+        Assert.Contains("DYNAMWindowsCompanion-${{ needs.metadata.outputs.semVer }}-win-arm64.zip", workflow);
         Assert.Contains("AfterInstall: InstallVCRuntime", installer);
         Assert.Contains("Exec(", installer);
         Assert.Contains("ResultCode = 3010", installer);

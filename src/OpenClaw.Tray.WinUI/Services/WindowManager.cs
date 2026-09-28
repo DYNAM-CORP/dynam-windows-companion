@@ -508,7 +508,7 @@ internal sealed class WindowManager : IWindowManager
                     _callbacks.IsDeepLinkArg,
                     Environment.ProcessId))
             {
-                Title = AppIdentity.DecorateWindowTitle("OpenClaw Setup"),
+                Title = AppIdentity.DecorateWindowTitle("DYNAM Windows Companion Setup"),
             };
             _setupWindow = setupWindow;
             _callbacks.ApplyTheme(setupWindow);

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "product": "DYNAM Windows Companion",
+  "platform": "windows",
+  "requiredForNewDeployments": true,
+  "repository": "DYNAM-CORP/dynam-windows-companion",
+  "releaseState": "pending",
+  "selectedVersion": null,
+  "manifestAsset": "DYNAMWindowsCompanion-release.json",
+  "architectureSelection": "match-client-machine",
+  "enrollmentPurpose": "windows-companion",
+  "enrollmentLifetimeSeconds": 600,
+  "enrollmentTransport": "authenticated-portal-then-paste-setup-code",
+  "settingsDeepLink": "openclaw://settings",
+  "requiredReleaseGates": [
+    "public-immutable-installers-and-checksums",
+    "dynam-authenticode-signature-verified",
+    "current-release-build-tests-and-visible-branding",
+    "fresh-client-install-upgrade-and-uninstall",
+    "tenant-bound-native-websocket-admission",
+    "limited-bootstrap-expiration-replay-and-revocation",
+    "paired-operator-chat-and-node-file-operation",
+    "cross-tenant-and-cross-runtime-denial",
+    "restart-and-reconnect-with-role-device-tokens"
+  ],
+  "forbiddenClientCredentials": [
+    "shared-gateway-token",
+    "runtime-root-ssh-key",
+    "provider-api-key",
+    "another-workspace-device-token"
+  ]
+}

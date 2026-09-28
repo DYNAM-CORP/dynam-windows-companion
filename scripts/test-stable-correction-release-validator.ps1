@@ -134,7 +134,7 @@ $validatorSource = Get-Content -LiteralPath $validatorPath -Raw
 if ($validatorSource -match 'repos/openclaw/openclaw/') {
     throw "Validator must not depend on the openclaw/openclaw release API."
 }
-if ($validatorSource -notmatch 'repos/openclaw/openclaw-windows-node/releases/latest') {
+if ($validatorSource -notmatch 'repos/DYNAM-CORP/dynam-windows-companion/releases/latest') {
     throw "Validator must resolve the current Windows latest release tag."
 }
 

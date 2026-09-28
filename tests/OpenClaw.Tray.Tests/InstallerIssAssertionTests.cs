@@ -47,17 +47,17 @@ public sealed class InstallerIssAssertionTests
     {
         var iss = File.ReadAllText(Path.Combine(TestRepositoryPaths.GetRepositoryRoot(), "installer.iss"));
 
-        Assert.Contains(@"#define MyAppName ""OpenClaw Companion""", iss);
+        Assert.Contains(@"#define MyAppName ""DYNAM Windows Companion""", iss);
         Assert.Contains(@"#define MyAppAumid ""OpenClaw.Companion""", iss);
         Assert.Contains(@"#define MyCompression ""lzma""", iss);
         Assert.Contains(@"#define MySolidCompression ""yes""", iss);
-        Assert.Contains("OutputBaseFilename=OpenClawCompanion{#MyOutputSuffix}-Setup-{#MyAppArch}", iss);
+        Assert.Contains("OutputBaseFilename=DYNAMWindowsCompanion{#MyOutputSuffix}-Setup-{#MyAppArch}", iss);
         foreach (var iconEntry in new[]
         {
             @"Name: ""{group}\{#MyAppName}""; Filename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
-            @"Name: ""{group}\OpenClaw Gateway Setup""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://setup""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
-            @"Name: ""{group}\OpenClaw Companion Settings""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://commandcenter""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
-            @"Name: ""{group}\OpenClaw Chat""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://chat""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
+            @"Name: ""{group}\DYNAM Gateway Setup""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://setup""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
+            @"Name: ""{group}\DYNAM Companion Settings""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://commandcenter""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
+            @"Name: ""{group}\DYNAM Chat""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://chat""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
             @"Name: ""{group}\Check for Updates""; Filename: ""{app}\{#MyAppExeName}""; Parameters: ""{#MyProtocol}://check-updates""; IconFilename: ""{app}\{#MyAppExeName}""; AppUserModelID: ""{#MyAppAumid}""",
             @"Name: ""{autodesktop}\{#MyAppName}""; Filename: ""{app}\{#MyAppExeName}""; Tasks: desktopicon; AppUserModelID: ""{#MyAppAumid}""",
             @"Name: ""{userstartup}\{#MyAppName}""; Filename: ""{app}\{#MyAppExeName}""; Tasks: startupicon; AppUserModelID: ""{#MyAppAumid}"""
@@ -79,6 +79,13 @@ public sealed class InstallerIssAssertionTests
         Assert.Contains("UninstallSilent()", iss);
         Assert.Contains("LocalGatewayCleanupRequested := True", iss);
         Assert.Contains("{#MyDistroName} WSL distro", iss);
+        Assert.Contains("DYNAM Windows Companion local WSL gateway", iss);
+        Assert.Contains("DYNAM Windows Companion could not remove the local WSL gateway.", iss);
+        Assert.Contains("uninstalling DYNAM Windows Companion", iss);
+        Assert.Contains(@"#define MyAutoStartName ""OpenClawTray""", iss);
+        Assert.Contains(@"#define MyStartupTaskName ""OpenClaw Companion""", iss);
+        Assert.Contains(@"#define MyAutoStartName ""OpenClawTray-Dev""", iss);
+        Assert.Contains(@"#define MyStartupTaskName ""OpenClaw Companion (Dev)""", iss);
         Assert.Contains("MB_YESNO or MB_DEFBUTTON2", iss);
         Assert.Contains("ExpandConstant('{sys}\\WindowsPowerShell\\v1.0\\powershell.exe')", iss);
         Assert.Contains("ewWaitUntilTerminated", iss);
@@ -143,13 +150,13 @@ public sealed class InstallerIssAssertionTests
     {
         var iss = File.ReadAllText(Path.Combine(TestRepositoryPaths.GetRepositoryRoot(), "installer.iss"));
 
-        Assert.Contains(@"#define MyAppName ""OpenClaw Companion (Dev)""", iss);
+        Assert.Contains(@"#define MyAppName ""DYNAM Windows Companion (Dev)""", iss);
         Assert.Contains(@"#define MyAppAumid ""OpenClaw.Companion.Dev""", iss);
         Assert.Contains(@"#define MyInstallDir ""OpenClawTray-Dev""", iss);
         Assert.Contains(@"#define MyMutex ""OpenClawTray-Dev""", iss);
         Assert.Contains(@"#define MyProtocol ""openclaw-dev""", iss);
         Assert.Contains(@"#define MyDistroName ""OpenClawGateway-Dev""", iss);
-        Assert.Contains(@"#define MyAppPublisher ""OpenClaw Foundation""", iss);
+        Assert.Contains(@"#define MyAppPublisher ""DYNAM""", iss);
         Assert.Contains("-DataDirectoryName ' + AddQuotes('{#MyInstallDir}')", iss);
         Assert.Contains("-AutoStartName ' + AddQuotes('{#MyAutoStartName}')", iss);
         Assert.Contains("-StartupTaskName ' + AddQuotes('{#MyStartupTaskName}')", iss);

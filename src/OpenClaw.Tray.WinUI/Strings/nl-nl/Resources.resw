@@ -276,26 +276,26 @@
     <value>Sluiten</value>
   </data>
   <data name="WindowTitle_Settings" xml:space="preserve">
-    <value>Instellingen: OpenClaw Tray</value>
+    <value>Instellingen: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_Status" xml:space="preserve">
     <value>Status: OpenClaw-systeemvak</value>
-    <value>Statusvenster: OpenClaw Tray</value>
+    <value>Statusvenster: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_ActivityStream" xml:space="preserve">
-    <value>Activiteitenstroom: OpenClaw Tray</value>
+    <value>Activiteitenstroom: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_NotificationHistory" xml:space="preserve">
-    <value>Meldingsgeschiedenis: OpenClaw Tray</value>
+    <value>Meldingsgeschiedenis: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_WebChat" xml:space="preserve">
     <value>OpenClaw-chatgesprek</value>
   </data>
   <data name="WindowTitle_Welcome" xml:space="preserve">
-    <value>Welkom bij OpenClaw</value>
+    <value>Welkom bij DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_Update" xml:space="preserve">
-    <value>OpenClaw-update</value>
+    <value>DYNAM Windows Companion-update</value>
   </data>
   <data name="Status_Testing" xml:space="preserve">
     <value>Testen...</value>
@@ -307,10 +307,10 @@
     <value>❌ Verbinding mislukt</value>
   </data>
   <data name="Welcome_Title" xml:space="preserve">
-    <value>Welkom bij OpenClaw!</value>
+    <value>Welkom bij DYNAM Windows Companion!</value>
   </data>
   <data name="Welcome_Description" xml:space="preserve">
-    <value>OpenClaw Tray is je Windows-hulpprogramma voor OpenClaw, de AI-gestuurde persoonlijke assistent.</value>
+    <value>DYNAM Windows Companion is je Windows-hulpprogramma voor OpenClaw, de AI-gestuurde persoonlijke assistent.</value>
   </data>
   <data name="Welcome_GettingStarted" xml:space="preserve">
     <value>Om te beginnen heb je het volgende nodig:</value>
@@ -510,7 +510,7 @@
     <value>Testmelding</value>
   </data>
   <data name="TestNotification_Body" xml:space="preserve">
-    <value>Dit is een testmelding van OpenClaw Tray.</value>
+    <value>Dit is een testmelding van DYNAM Windows Companion.</value>
   </data>
   <data name="Status_LastCheckFormat" xml:space="preserve">
     <value>Laatste controle: {0}</value>
@@ -809,7 +809,7 @@ Gebruik een van deze opties:
     <value>📷 Cameratoegang geblokkeerd</value>
   </data>
   <data name="Toast_CameraBlockedDetail" xml:space="preserve">
-    <value>Schakel cameratoegang in via Windows-privacyinstellingen voor OpenClaw Tray</value>
+    <value>Schakel cameratoegang in via Windows-privacyinstellingen voor DYNAM Windows Companion</value>
   </data>
   <!-- ==================== Toast: Recording ==================== -->
   <data name="Toast_ScreenRecordingStarted" xml:space="preserve">
@@ -890,7 +890,7 @@ Gebruik een van deze opties:
     <value>Privacyinstellingen</value>
   </data>
   <data name="SettingsPrivacyDescription.Text" xml:space="preserve">
-    <value>Sta gevoelige vastlegging toe zonder elke keer om toestemming te vragen. OpenClaw waarschuwt nog steeds vóór elke toegang en toont een aftelling vóór opnamen.</value>
+    <value>Sta gevoelige vastlegging toe zonder elke keer om toestemming te vragen. DYNAM Windows Companion waarschuwt nog steeds vóór elke toegang en toont een aftelling vóór opnamen.</value>
   </data>
   <data name="ScreenRecordingToggle.Header" xml:space="preserve">
     <value>Schermopname toestaan</value>
@@ -996,7 +996,7 @@ Gebruik een van deze opties:
     <value>Update downloaden...</value>
   </data>
   <data name="UrlApproval_Caption" xml:space="preserve">
-    <value>OpenClaw: URL goedkeuren</value>
+    <value>DYNAM Windows Companion: URL goedkeuren</value>
   </data>
   <data name="UrlApproval_Body" xml:space="preserve">
     <value>Een agent wil een risicovolle bestemming in je browser openen.</value>
@@ -1023,7 +1023,7 @@ Gebruik een van deze opties:
     <value>Nee: blokkeer hem.</value>
   </data>
   <data name="Onboarding_Title" xml:space="preserve">
-    <value>OpenClaw instellen</value>
+    <value>DYNAM Windows Companion instellen</value>
   </data>
   <data name="Onboarding_Back" xml:space="preserve">
     <value>Terug</value>
@@ -1038,13 +1038,13 @@ Gebruik een van deze opties:
     <value>Setup is nog niet voltooid</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Body" xml:space="preserve">
-    <value>OpenClaw heeft nog setup nodig voordat de Hub kan worden geopend. Gebruik Terug om naar de wizard of verbindingsstappen te gaan, los de ontbrekende setup op en probeer daarna Voltooien opnieuw.</value>
+    <value>DYNAM Windows Companion heeft nog setup nodig voordat de Hub kan worden geopend. Gebruik Terug om naar de wizard of verbindingsstappen te gaan, los de ontbrekende setup op en probeer daarna Voltooien opnieuw.</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Close" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Onboarding_Welcome_Title" xml:space="preserve">
-    <value>Welkom bij OpenClaw</value>
+    <value>Welkom bij DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_Welcome_Subtitle" xml:space="preserve">
     <value>Uw AI-assistent, direct vanuit het systeemvak</value>
@@ -1089,7 +1089,7 @@ Gebruik een van deze opties:
     <value>Alles klaar!</value>
   </data>
   <data name="Onboarding_Ready_Subtitle" xml:space="preserve">
-    <value>OpenClaw is klaar voor gebruik. Hier zijn enkele dingen om te proberen:</value>
+    <value>DYNAM Windows Companion is klaar voor gebruik. Hier zijn enkele dingen om te proberen:</value>
   </data>
   <data name="Onboarding_Ready_Feature_TrayMenu" xml:space="preserve">
     <value>Menubalkpaneel openen</value>
@@ -1107,7 +1107,7 @@ Gebruik een van deze opties:
     <value>Vaardigheden inschakelen</value>
   </data>
   <data name="Onboarding_Ready_LaunchAtLogin" xml:space="preserve">
-    <value>OpenClaw starten bij het opstarten</value>
+    <value>DYNAM Windows Companion starten bij het opstarten</value>
   </data>
   <data name="Onboarding_Ready_ConfigureLater" xml:space="preserve">
     <value>U kunt uw gatewayverbinding op elk moment configureren via het systeemvakmenu.</value>
@@ -1167,7 +1167,7 @@ Gebruik een van deze opties:
     <value>Machtigingen verlenen</value>
   </data>
   <data name="Onboarding_Permissions_Description" xml:space="preserve">
-    <value>OpenClaw werkt het beste wanneer het meldingen kan verzenden, toegang heeft tot camera en microfoon, uw scherm kan vastleggen en uw locatie kent. Verleen hieronder machtigingen.</value>
+    <value>DYNAM Windows Companion werkt het beste wanneer het meldingen kan verzenden, toegang heeft tot camera en microfoon, uw scherm kan vastleggen en uw locatie kent. Verleen hieronder machtigingen.</value>
   </data>
   <data name="Onboarding_Permissions_Refresh" xml:space="preserve">
     <value>Status vernieuwen</value>
@@ -1338,7 +1338,7 @@ Gebruik een van deze opties:
     <value>Kan installatiecode niet decoderen uit deze afbeelding</value>
   </data>
   <data name="Onboarding_Connection_SshHint" xml:space="preserve">
-    <value>OpenClaw maakt een beheerde SSH-tunnel om de gatewaypoort van de externe host naar deze pc door te sturen.</value>
+    <value>DYNAM Windows Companion maakt een beheerde SSH-tunnel om de gatewaypoort van de externe host naar deze pc door te sturen.</value>
   </data>
   <data name="Onboarding_Connection_SshUser" xml:space="preserve">
     <value>SSH-gebruiker</value>
@@ -1368,7 +1368,7 @@ Gebruik een van deze opties:
     <value>U kunt de gateway later configureren in Instellingen.</value>
   </data>
   <data name="Onboarding_SetupWarning_Title" xml:space="preserve">
-    <value>OpenClaw instellen</value>
+    <value>DYNAM Windows Companion instellen</value>
   </data>
   <data name="Onboarding_SetupWarning_Body" xml:space="preserve">
     <value>OpenClaw laat agents opdrachten uitvoeren, bestanden lezen en schrijven en schermafbeeldingen maken op deze pc. Stel het alleen in op een computer die u vertrouwt.
@@ -1613,7 +1613,7 @@ Gebruik een van deze opties:
     <value>Saving configuration</value>
   </data>
   <data name="ConfigPage_ReconnectDialogBody" xml:space="preserve">
-    <value>OpenClaw is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
+    <value>DYNAM Windows Companion is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
   </data>
   <data name="ConfigPage_ReconnectDialogAccepted" xml:space="preserve">
     <value>Gateway is restarting...</value>
@@ -2225,7 +2225,7 @@ Gebruik een van deze opties:
     <value>Maak verbinding met de gateway om te chatten</value>
   </data>
   <data name="TitleText.Text" xml:space="preserve">
-    <value>OpenClaw Windows Companion</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="NavPaneToggleButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Navigatievenster in- of uitschakelen</value>
@@ -2432,22 +2432,22 @@ Gebruik een van deze opties:
     <value>Werkruimtebestanden</value>
   </data>
   <data name="ChatWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Chat</value>
+    <value>DYNAM Chat</value>
   </data>
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>Typ een opdracht...</value>
   </data>
   <data name="HubWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="TitleSearchBox.PlaceholderText" xml:space="preserve">
     <value>Zoeken… (Ctrl+E)</value>
   </data>
   <data name="CanvasWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindow_TextBlock_31.Text" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindowReloadToolTip.Content" xml:space="preserve">
     <value>Opnieuw laden</value>
@@ -2456,7 +2456,7 @@ Gebruik een van deze opties:
     <value>Canvas opnieuw laden</value>
   </data>
   <data name="TrayMenuWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Menu</value>
+    <value>DYNAM Menu</value>
   </data>
   <data name="UsagePage_TextBlock_10.Text" xml:space="preserve">
     <value>Gebruik en kosten</value>
@@ -3131,7 +3131,7 @@ Gebruik een van deze opties:
     <value>Gatewayverbinding mislukt</value>
   </data>
   <data name="AppNotification_GatewayConnectionFailed_DefaultMessage" xml:space="preserve">
-    <value>OpenClaw kon geen verbinding maken met de actieve gateway.</value>
+    <value>DYNAM Windows Companion kon geen verbinding maken met de actieve gateway.</value>
   </data>
   <data name="AppNotification_GatewayPairingRequired_Title" xml:space="preserve">
     <value>Goedkeuring voor gatewaykoppeling vereist</value>
@@ -3201,7 +3201,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Meldingen</value>
   </data>
   <data name="NotificationsPage_Subtitle.Text" xml:space="preserve">
-    <value>Bekijk en wis actieve OpenClaw-meldingen.</value>
+    <value>Bekijk en wis actieve DYNAM Windows Companion-meldingen.</value>
   </data>
   <data name="NotificationsPage_ClearButton.Content" xml:space="preserve">
     <value>Wissen</value>
@@ -3342,7 +3342,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Gateway-tijdlijngebeurtenis genegeerd</value>
   </data>
   <data name="Chat_Notification_KeylessEventDroppedMessage" xml:space="preserve">
-    <value>De gateway heeft een chattijdlijngebeurtenis zonder sessiesleutel verzonden, dus OpenClaw heeft deze genegeerd om te voorkomen dat tijdlijnen door elkaar lopen. Werk de gateway bij of start deze opnieuw als dit doorgaat.</value>
+    <value>De gateway heeft een chattijdlijngebeurtenis zonder sessiesleutel verzonden, dus DYNAM Windows Companion heeft deze genegeerd om te voorkomen dat tijdlijnen door elkaar lopen. Werk de gateway bij of start deze opnieuw als dit doorgaat.</value>
   </data>
   <data name="VoiceSettingsPage_TestVoiceButtonText.Text" xml:space="preserve">
     <value>Spraakinvoer testen</value>
@@ -3588,7 +3588,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>{0}d geleden</value>
   </data>
   <data name="V2_Window_Title" xml:space="preserve">
-    <value>OpenClaw Setup</value>
+    <value>DYNAM Windows Companion Setup</value>
   </data>
   <data name="V2_Nav_Back" xml:space="preserve">
     <value>Back</value>
@@ -3600,7 +3600,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Finish</value>
   </data>
   <data name="V2_Welcome_Title" xml:space="preserve">
-    <value>Get started with OpenClaw</value>
+    <value>Get started with DYNAM Windows Companion</value>
   </data>
   <data name="V2_Welcome_Body" xml:space="preserve">
     <value>OpenClaw lets agents run commands, read and write files, and capture screenshots on this PC. Only set it up on a computer you trust.</value>
@@ -3687,7 +3687,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Grant permissions</value>
   </data>
   <data name="V2_Permissions_Body" xml:space="preserve">
-    <value>OpenClaw works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
+    <value>DYNAM Windows Companion works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
   </data>
   <data name="V2_Permissions_Row_Notifications" xml:space="preserve">
     <value>Notifications</value>
@@ -3720,7 +3720,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>All set!</value>
   </data>
   <data name="V2_AllSet_Subtitle" xml:space="preserve">
-    <value>OpenClaw is ready to go</value>
+    <value>DYNAM Windows Companion is ready to go</value>
   </data>
   <data name="V2_AllSet_NodeMode_Title" xml:space="preserve">
     <value>Node Mode Active</value>
@@ -3729,7 +3729,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>This PC will operate as a remote compute node. The gateway can invoke screen capture, camera, and system commands on this machine.</value>
   </data>
   <data name="V2_AllSet_StartupQuestion" xml:space="preserve">
-    <value>Launch OpenClaw at startup?</value>
+    <value>Launch DYNAM Windows Companion at startup?</value>
   </data>
   <data name="V2_AllSet_On" xml:space="preserve">
     <value>On</value>
@@ -4014,7 +4014,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Chat surface overrides</value>
   </data>
   <data name="DiagnosticsPage_Expander_ChatOverrides.Description" xml:space="preserve">
-    <value>Per-surface override of the chat UI. Resets when OpenClaw restarts.</value>
+    <value>Per-surface override of the chat UI. Resets when DYNAM Windows Companion restarts.</value>
   </data>
   <data name="DiagnosticsPage_Card_HubChat.Header" xml:space="preserve">
     <value>Hub chat tab</value>
@@ -4026,7 +4026,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Back to Diagnostics</value>
   </data>
   <data name="SettingsRow_AutoStart_Description.Text" xml:space="preserve">
-    <value>Launch OpenClaw automatically when you sign in.</value>
+    <value>Launch DYNAM Windows Companion automatically when you sign in.</value>
   </data>
   <data name="SettingsRow_GlobalHotkey_Description.Text" xml:space="preserve">
     <value>Enable global hotkeys (Ctrl+Alt+Shift+V for voice, Ctrl+Alt+; for settings).</value>
@@ -4542,7 +4542,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>Toegang tot camera, microfoon &amp;amp; scherm</value>
   </data>
   <data name="PermissionsPage_SystemLevelPrivacyPermissions.Text" xml:space="preserve">
-    <value>Privacymachtigingen op systeemniveau worden beheerd door Windows. Open Windows-privacyinstellingen om OpenClaw toegang te verlenen of in te trekken.</value>
+    <value>Privacymachtigingen op systeemniveau worden beheerd door Windows. Open Windows-privacyinstellingen om DYNAM Windows Companion toegang te verlenen of in te trekken.</value>
   </data>
   <data name="SandboxPage_NodeSandboxIsOn.Text" xml:space="preserve">
     <value>Node-sandbox is ingeschakeld</value>
@@ -4981,7 +4981,7 @@ Opdrachten worden geblokkeerd zolang sandboxing niet beschikbaar is, omdat strik
     <value>MSIX-installatie gedetecteerd</value>
   </data>
   <data name="SettingsPage_MSIXInstallationDetected.Message" xml:space="preserve">
-    <value>OpenClaw verwijderen via Windows Instellingen &amp;amp;#x2192; Apps zal de lokale gateway NIET opruimen (WSL-distributie, schijfafbeelding). Gebruik EERST Lokale gateway verwijderen hieronder, en verwijder daarna OpenClaw.</value>
+    <value>DYNAM Windows Companion verwijderen via Windows Instellingen &amp;amp;#x2192; Apps zal de lokale gateway NIET opruimen (WSL-distributie, schijfafbeelding). Gebruik EERST Lokale gateway verwijderen hieronder, en verwijder daarna DYNAM Windows Companion.</value>
   </data>
   <data name="SettingsPage_RemovesTheWSLDistro.Text" xml:space="preserve">
     <value>Verwijdert de WSL-distributie (OpenClawGateway), de schijfafbeelding, het item voor automatisch starten en wist de gateway-referenties. Uw MCP-token blijft behouden. Onboarding wordt gereset.</value>
@@ -6515,7 +6515,7 @@ Controleer of de gateway actief is.</value>
     <value>geen gateway geconfigureerd</value>
   </data>
   <data name="DebugPage_StatusConnectedFormat" xml:space="preserve">
-    <value>OpenClaw is verbonden met {0}.</value>
+    <value>DYNAM Windows Companion is verbonden met {0}.</value>
   </data>
   <data name="DebugPage_StatusConnectingFormat" xml:space="preserve">
     <value>Verbinding maken met {0}…</value>
