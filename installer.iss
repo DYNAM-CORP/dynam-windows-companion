@@ -101,6 +101,8 @@ Name: "startupicon"; Description: "Start {#MyAppName} when Windows starts"; Grou
 [Files]
 ; WinUI Tray app - include all files (WinUI needs DLLs, not single-file)
 Source: "{#publish}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+; Keep the upstream MIT license with the installed app.
+Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 ; WSL gateway uninstall helper copied to {tmp} by [Code] during uninstall.
 Source: "scripts\Uninstall-LocalGateway.ps1"; DestDir: "{app}"; Flags: ignoreversion
 #if vcRedist != ""
