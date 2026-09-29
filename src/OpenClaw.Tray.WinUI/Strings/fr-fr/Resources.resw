@@ -7116,4 +7116,20 @@ Le binaire wxc-exec est introuvable. {1} S'il s'agit d'une build développeur, c
   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>La disponibilité de l'IA locale n'a pas pu être vérifiée</value></data>
   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>Vérification de la disponibilité de l'IA locale</value></data>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw vérifie si cet appareil peut exécuter l'IA locale. Cela ne prend qu'un instant.</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>Connecter DYNAM Companion</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Collez le code de configuration fourni par votre agent DYNAM pour connecter ce PC.</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Collez le code de configuration</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Connecter</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Approuvez cet appareil sur votre passerelle.</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>Ouvrir Companion</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>Les codes expirent et servent uniquement à connecter ce PC.</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>Connexion à votre passerelle…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>En attente d’approbation. Communiquez l’identifiant de cet appareil à votre agent ou à l’administrateur de la passerelle.</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>Identifiant de l’appareil : {0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>pas encore disponible</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>Ce PC est connecté à votre passerelle.</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>Ce code a expiré. Demandez-en un nouveau à votre agent.</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>Ce code ne pointe pas vers une passerelle publique sécurisée.</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>Ce code est invalide. Copiez un nouveau code depuis votre agent DYNAM et réessayez.</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>La connexion a échoué. Vérifiez le code ou réessayez plus tard.</value></data>
 </root>

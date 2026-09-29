@@ -831,10 +831,35 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
         var setupShownDuringStartup = false;
         try
         {
-            if ((!_isPostSetupRestart && RequiresSetup(_settings)) ||
-                Environment.GetEnvironmentVariable("OPENCLAW_FORCE_ONBOARDING") == "1")
+            var requiresSetup = !_isPostSetupRestart && RequiresSetup(_settings);
+            var hasExistingGatewayConnection = requiresSetup &&
+                SetupExistingGatewayClassifier.HasAnyExistingGatewayConnection(
+                    _gatewayRegistry,
+                    _settings,
+                    IdentityDataPath);
+            var requiresFirstRunSetup = requiresSetup && !hasExistingGatewayConnection;
+            var forceLegacyOnboarding = Environment.GetEnvironmentVariable("OPENCLAW_FORCE_ONBOARDING") == "1";
+            if (requiresSetup || forceLegacyOnboarding)
             {
-                await ShowOnboardingAsync();
+                if (requiresFirstRunSetup && !forceLegacyOnboarding)
+                {
+                    // A fresh DYNAM Companion install is a Windows node client. Initialize node
+                    // capabilities before the setup-code flow opens a Gateway connection so the
+                    // first hello advertises the normal, locally configured capability set.
+                    if (!_settings.EnableNodeMode)
+                    {
+                        _settings.EnableNodeMode = true;
+                        _settings.Save();
+                    }
+
+                    EnsureNodeService(_settings);
+                    await _windowManager.ShowFirstRunOnboardingAsync();
+                }
+                else
+                {
+                    await ShowOnboardingAsync();
+                }
+
                 setupShownDuringStartup = true;
             }
         }

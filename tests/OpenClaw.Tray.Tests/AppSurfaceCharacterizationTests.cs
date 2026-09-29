@@ -85,6 +85,23 @@ public sealed class AppSurfaceCharacterizationTests
     }
 
     [Fact]
+    public void FreshStartup_UsesCodeOnlyOnboarding_WhileExplicitSetupGuideKeepsFullWizard()
+    {
+        var root = TestRepositoryPaths.GetRepositoryRoot();
+        var app = File.ReadAllText(Path.Combine(root, "src", "OpenClaw.Tray.WinUI", "App.xaml.cs"));
+        var windowManager = File.ReadAllText(Path.Combine(root, "src", "OpenClaw.Tray.WinUI", "Services", "WindowManager.cs"));
+
+        Assert.Contains("var requiresSetup = !_isPostSetupRestart && RequiresSetup(_settings);", app);
+        Assert.Contains("SetupExistingGatewayClassifier.HasAnyExistingGatewayConnection(", app);
+        Assert.Contains("var requiresFirstRunSetup = requiresSetup && !hasExistingGatewayConnection;", app);
+        Assert.Contains("await _windowManager.ShowFirstRunOnboardingAsync();", app);
+        Assert.Contains("await ShowOnboardingAsync();", app);
+        Assert.Contains("startAtFirstRunCodeOnboarding: false", windowManager);
+        Assert.Contains("public async Task ShowFirstRunOnboardingAsync()", windowManager);
+        Assert.Contains("startAtFirstRunCodeOnboarding: true", windowManager);
+    }
+
+    [Fact]
     public void Shutdown_PreservesSurfaceProviderAndTrayOrdering()
     {
         var source = ReadShutdownCoordinatorSource();

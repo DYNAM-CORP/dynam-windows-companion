@@ -7117,4 +7117,20 @@ Het binaire bestand wxc-exec is niet gevonden. {1} Als dit een ontwikkelaarsbuil
   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>Beschikbaarheid van lokale AI kon niet worden geverifieerd</value></data>
   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>Beschikbaarheid van lokale AI controleren</value></data>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw controleert of dit apparaat lokale AI kan uitvoeren. Dit duurt slechts een moment.</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>DYNAM Companion verbinden</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Plak de installatiecode van je DYNAM-agent om deze pc te verbinden.</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Plak installatiecode</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Verbinden</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Keur dit apparaat goed in je gateway.</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>Companion openen</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>Installatiecodes verlopen en worden alleen gebruikt om deze pc te verbinden.</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>Verbinding maken met je gateway…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>Wachten op goedkeuring. Geef deze apparaat-ID aan je agent of gatewaybeheerder.</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>Apparaat-ID: {0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>nog niet beschikbaar</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>Deze pc is verbonden met je gateway.</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>Deze code is verlopen. Vraag je agent om een nieuwe.</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>Deze code verwijst niet naar een openbare, beveiligde gateway.</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>Deze code is ongeldig. Kopieer een nieuwe code van je DYNAM-agent en probeer opnieuw.</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>Verbinden is mislukt. Controleer de code of probeer het later opnieuw.</value></data>
 </root>

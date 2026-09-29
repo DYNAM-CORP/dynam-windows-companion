@@ -345,6 +345,15 @@ internal sealed class WindowManager : IWindowManager
     {
         await EnsureSetupWindowAsync(
             startAtGatewayInstalledMilestone: false,
+            startAtFirstRunCodeOnboarding: false,
+            localAiRecoveryTarget: null);
+    }
+
+    public async Task ShowFirstRunOnboardingAsync()
+    {
+        await EnsureSetupWindowAsync(
+            startAtGatewayInstalledMilestone: false,
+            startAtFirstRunCodeOnboarding: true,
             localAiRecoveryTarget: null);
     }
 
@@ -419,6 +428,7 @@ internal sealed class WindowManager : IWindowManager
     {
         var (setupWindow, created) = await EnsureSetupWindowAsync(
             startAtGatewayInstalledMilestone: false,
+            startAtFirstRunCodeOnboarding: false,
             localAiRecoveryTarget: target);
         if (!_isShuttingDown && !created && setupWindow is { IsClosed: false })
         {
@@ -430,6 +440,7 @@ internal sealed class WindowManager : IWindowManager
     {
         var (setupWindow, created) = await EnsureSetupWindowAsync(
             startAtGatewayInstalledMilestone: true,
+            startAtFirstRunCodeOnboarding: false,
             localAiRecoveryTarget: null);
         if (!_isShuttingDown && !created && setupWindow is { IsClosed: false })
         {
@@ -446,6 +457,7 @@ internal sealed class WindowManager : IWindowManager
 
     private async Task<(SetupWindow? Window, bool Created)> EnsureSetupWindowAsync(
         bool startAtGatewayInstalledMilestone,
+        bool startAtFirstRunCodeOnboarding,
         LocalAiRecoveryTarget? localAiRecoveryTarget)
     {
         if (_isShuttingDown || _callbacks.GetSettings() is null)
@@ -494,6 +506,7 @@ internal sealed class WindowManager : IWindowManager
             setupWindow = new SetupWindow(
                 startAtGatewayInstalledMilestone: startAtGatewayInstalledMilestone,
                 startAtLocalAiRecoveryReview: localAiRecoveryTarget is not null,
+                startAtFirstRunCodeOnboarding: startAtFirstRunCodeOnboarding,
                 dataDir: AppIdentity.ResolveRoamingDataDirectory(),
                 localDataDir: AppIdentity.ResolveSetupLocalDataDirectory(),
                 distroNameOverride: AppIdentity.SetupDistroName,
@@ -509,6 +522,9 @@ internal sealed class WindowManager : IWindowManager
                     Environment.ProcessId))
             {
                 Title = AppIdentity.DecorateWindowTitle("DYNAM Windows Companion Setup"),
+                FirstRunSetupCodeConnector = startAtFirstRunCodeOnboarding
+                    ? ConnectFirstRunSetupCodeAsync
+                    : null,
             };
             _setupWindow = setupWindow;
             _callbacks.ApplyTheme(setupWindow);
@@ -555,6 +571,26 @@ internal sealed class WindowManager : IWindowManager
             Logger.Error($"Failed to open setup window: {ex}");
             return (null, false);
         }
+    }
+
+    private Task ConnectFirstRunSetupCodeAsync(
+        string setupCode,
+        IProgress<FirstRunSetupCodeStatus> progress,
+        CancellationToken cancellationToken)
+    {
+        var manager = _callbacks.GetConnectionManager();
+        if (manager is null)
+        {
+            progress.Report(new FirstRunSetupCodeStatus(
+                FirstRunSetupCodeState.Error,
+                Error: FirstRunSetupCodeError.ConnectionFailed));
+            return Task.CompletedTask;
+        }
+
+        return new FirstRunSetupCodeCoordinator(manager).ConnectAsync(
+            setupCode,
+            progress,
+            cancellationToken);
     }
 
     private void OnSetupClosed(object sender, WindowEventArgs args)
