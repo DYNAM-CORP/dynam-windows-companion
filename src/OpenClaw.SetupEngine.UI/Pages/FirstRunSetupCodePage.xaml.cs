@@ -12,6 +12,18 @@ public sealed partial class FirstRunSetupCodePage : Page
     public FirstRunSetupCodePage()
     {
         InitializeComponent();
+        var capabilities = SetupWindow.Active?.FirstRunNodeCapabilitiesProvider?.Invoke();
+        if (capabilities is not null)
+        {
+            CanvasCapability.IsChecked = capabilities.Canvas;
+            SystemRunCapability.IsChecked = capabilities.SystemRun;
+            ScreenCapability.IsChecked = capabilities.Screen;
+            CameraCapability.IsChecked = capabilities.Camera;
+            LocationCapability.IsChecked = capabilities.Location;
+            TextToSpeechCapability.IsChecked = capabilities.TextToSpeech;
+            SpeechToTextCapability.IsChecked = capabilities.SpeechToText;
+            LocalModelCapability.IsChecked = capabilities.LocalModelAccess;
+        }
         SetupCodeBox.Focus(FocusState.Programmatic);
     }
 
@@ -33,9 +45,17 @@ public sealed partial class FirstRunSetupCodePage : Page
             return;
         }
 
-        var setupWindow = SetupWindow.Active;
-        if (setupWindow is null)
+        if (CapabilityConsentCheckBox.IsChecked != true)
+        {
+            SetStatusText("Onboarding_CodeOnly_ConsentRequired");
             return;
+        }
+
+        var setupWindow = SetupWindow.Active;
+        if (setupWindow?.FirstRunNodeCapabilitiesApplier is not { } applyCapabilities)
+            return;
+
+        var selectedCapabilities = ReadSelectedCapabilities();
 
         _isConnecting = true;
         ConnectButton.IsEnabled = false;
@@ -49,6 +69,12 @@ public sealed partial class FirstRunSetupCodePage : Page
 
         try
         {
+            if (!await applyCapabilities(selectedCapabilities))
+            {
+                SetStatusText("Onboarding_CodeOnly_SaveCapabilitiesFailed");
+                return;
+            }
+
             var progress = new Progress<FirstRunSetupCodeStatus>(ApplyStatus);
             await setupWindow.ConnectWithFirstRunSetupCodeAsync(
                 code,
@@ -71,7 +97,7 @@ public sealed partial class FirstRunSetupCodePage : Page
             ConnectionProgress.IsActive = false;
             ConnectionProgress.Visibility = Visibility.Collapsed;
             SetupCodeBox.IsEnabled = true;
-            ConnectButton.IsEnabled = true;
+            UpdateConnectAvailability();
         }
     }
 
@@ -124,6 +150,27 @@ public sealed partial class FirstRunSetupCodePage : Page
         ConnectionStatusText.Text = SetupLocalization.GetString(resourceKey);
         ConnectionStatusText.Visibility = Visibility.Visible;
     }
+
+    private FirstRunNodeCapabilities ReadSelectedCapabilities() => new(
+        Canvas: CanvasCapability.IsChecked == true,
+        SystemRun: SystemRunCapability.IsChecked == true,
+        Screen: ScreenCapability.IsChecked == true,
+        Camera: CameraCapability.IsChecked == true,
+        Location: LocationCapability.IsChecked == true,
+        TextToSpeech: TextToSpeechCapability.IsChecked == true,
+        SpeechToText: SpeechToTextCapability.IsChecked == true,
+        LocalModelAccess: LocalModelCapability.IsChecked == true);
+
+    private void CapabilityConsentCheckBox_Changed(object sender, RoutedEventArgs e) =>
+        UpdateConnectAvailability();
+
+    private void SetupCodeBox_TextChanged(object sender, TextChangedEventArgs e) =>
+        UpdateConnectAvailability();
+
+    private void UpdateConnectAvailability() =>
+        ConnectButton.IsEnabled = !_isConnecting &&
+            CapabilityConsentCheckBox.IsChecked == true &&
+            !string.IsNullOrWhiteSpace(SetupCodeBox.Text);
 
     private void ContinueButton_Click(object sender, RoutedEventArgs e) => SetupWindow.Active?.Close();
 }

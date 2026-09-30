@@ -40,6 +40,8 @@ public sealed partial class SetupWindow : Window
     public event EventHandler? AdvancedSetupRequested;
     public event EventHandler<SetupCompletedEventArgs>? SetupCompleted;
     public Func<string, IProgress<FirstRunSetupCodeStatus>, CancellationToken, Task>? FirstRunSetupCodeConnector { get; set; }
+    public Func<FirstRunNodeCapabilities?>? FirstRunNodeCapabilitiesProvider { get; set; }
+    public Func<FirstRunNodeCapabilities, Task<bool>>? FirstRunNodeCapabilitiesApplier { get; set; }
     public bool IsClosed => _isClosed;
     public CancellationToken LifetimeToken => _lifetimeCts.Token;
     public Task CleanupCompleted => _cleanupCompleted.Task;

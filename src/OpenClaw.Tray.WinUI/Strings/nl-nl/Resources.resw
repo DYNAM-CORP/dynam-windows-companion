@@ -7119,6 +7119,20 @@ Het binaire bestand wxc-exec is niet gevonden. {1} Als dit een ontwikkelaarsbuil
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw controleert of dit apparaat lokale AI kan uitvoeren. Dit duurt slechts een moment.</value></data>
   <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>DYNAM Companion verbinden</value></data>
   <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Plak de installatiecode van je DYNAM-agent om deze pc te verbinden.</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>Kies wat deze pc met je agent deelt</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>App- en bureaubladhulpmiddelen</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>Opdrachten uitvoeren met lokale goedkeuring</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>Schermtoegang</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>Cameratoegang</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>Locatietoegang</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>Hardop spreken</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>Audio transcriberen</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>Lokale Ollama-modellen gebruiken</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>Op een nieuwe pc zijn scherm, camera en locatie uitgeschakeld. Elk gebruik vraagt nog steeds om lokale toestemming.</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>Browserbediening is niet beschikbaar in deze installatie.</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>Ik keur deze mogelijkheden voor deze pc goed</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>Selecteer de lokale mogelijkheden en keur ze goed voordat je verbinding maakt.</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>Je keuzes voor mogelijkheden konden niet worden opgeslagen. Er is geen verbinding gemaakt.</value></data>
   <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Plak installatiecode</value></data>
   <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Verbinden</value></data>
   <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Keur dit apparaat goed in je gateway.</value></data>

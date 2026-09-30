@@ -848,6 +848,16 @@ public partial class App : Application, OpenClawTray.Services.IAppCommands, IPer
                     // first hello advertises the normal, locally configured capability set.
                     if (!_settings.EnableNodeMode)
                     {
+                        if (!_settings.SettingsFileExistedAtLoad)
+                        {
+                            // New installs begin with sensitive device access disabled. The
+                            // first-run consent panel lets the owner opt in before capabilities
+                            // are declared to the gateway. Existing settings are preserved.
+                            _settings.NodeScreenEnabled = false;
+                            _settings.NodeCameraEnabled = false;
+                            _settings.NodeLocationEnabled = false;
+                            _settings.NodeBrowserProxyEnabled = false;
+                        }
                         _settings.EnableNodeMode = true;
                         _settings.Save();
                     }

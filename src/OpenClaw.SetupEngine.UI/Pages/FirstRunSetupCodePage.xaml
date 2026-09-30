@@ -6,10 +6,11 @@
     NavigationCacheMode="Disabled">
 
     <Grid Padding="48,36,48,28" RowDefinitions="*,Auto">
-        <StackPanel Grid.Row="0" MaxWidth="500" Spacing="18"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                      MaxHeight="760" VerticalScrollBarVisibility="Auto">
+          <StackPanel MaxWidth="540" Spacing="12" HorizontalAlignment="Center">
             <Image Source="ms-appx:///OpenClaw.SetupEngine.UI/Assets/Setup/OpenClawMascot.png"
-                   Width="76" Height="76" HorizontalAlignment="Center"
+                   Width="56" Height="56" HorizontalAlignment="Center"
                    AutomationProperties.AccessibilityView="Raw" />
             <TextBlock x:Uid="Onboarding_CodeOnly_Title"
                        Text="Connect DYNAM Companion"
@@ -21,17 +22,64 @@
                        Style="{StaticResource BodyTextBlockStyle}"
                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                        HorizontalAlignment="Center" />
+            <TextBlock x:Uid="Onboarding_CodeOnly_CapabilitiesTitle"
+                       Text="Choose what this PC shares with your agent"
+                       FontWeight="SemiBold" Margin="0,6,0,0" />
+            <Grid ColumnSpacing="16" RowSpacing="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="CanvasCapability" Grid.Row="0" Grid.Column="0"
+                          x:Uid="Onboarding_CodeOnly_Canvas" Content="App and desktop tools" />
+                <CheckBox x:Name="SystemRunCapability" Grid.Row="0" Grid.Column="1"
+                          x:Uid="Onboarding_CodeOnly_SystemRun" Content="Run commands with local approval" />
+                <CheckBox x:Name="ScreenCapability" Grid.Row="1" Grid.Column="0"
+                          x:Uid="Onboarding_CodeOnly_Screen" Content="Screen access" />
+                <CheckBox x:Name="CameraCapability" Grid.Row="1" Grid.Column="1"
+                          x:Uid="Onboarding_CodeOnly_Camera" Content="Camera access" />
+                <CheckBox x:Name="LocationCapability" Grid.Row="2" Grid.Column="0"
+                          x:Uid="Onboarding_CodeOnly_Location" Content="Location access" />
+                <CheckBox x:Name="TextToSpeechCapability" Grid.Row="2" Grid.Column="1"
+                          x:Uid="Onboarding_CodeOnly_Tts" Content="Speak aloud" />
+                <CheckBox x:Name="SpeechToTextCapability" Grid.Row="3" Grid.Column="0"
+                          x:Uid="Onboarding_CodeOnly_Stt" Content="Transcribe audio" />
+                <CheckBox x:Name="LocalModelCapability" Grid.Row="3" Grid.Column="1"
+                          x:Uid="Onboarding_CodeOnly_LocalModel" Content="Use local Ollama models" />
+            </Grid>
+            <TextBlock x:Uid="Onboarding_CodeOnly_CaptureConsentNote"
+                       Text="On a new PC, screen, camera, and location start off. Each use still asks you locally."
+                       TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            <TextBlock x:Uid="Onboarding_CodeOnly_BrowserUnavailable"
+                       Text="Browser control is unavailable in this setup."
+                       TextWrapping="Wrap" Style="{StaticResource CaptionTextBlockStyle}"
+                       Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            <CheckBox x:Name="CapabilityConsentCheckBox"
+                      x:Uid="Onboarding_CodeOnly_Consent"
+                      Content="I approve these capabilities for this PC"
+                      IsChecked="False"
+                      Checked="CapabilityConsentCheckBox_Changed"
+                      Unchecked="CapabilityConsentCheckBox_Changed" />
             <TextBox x:Name="SetupCodeBox"
                      x:Uid="Onboarding_CodeOnly_Input"
                      PlaceholderText="Paste setup code"
                      AcceptsReturn="False"
                      TextWrapping="NoWrap"
+                     TextChanged="SetupCodeBox_TextChanged"
                      AutomationProperties.AutomationId="FirstRunSetupCodeInput" />
             <Button x:Name="ConnectButton"
                     x:Uid="Onboarding_CodeOnly_ConnectButton"
                     Content="Connect"
                     MinWidth="140"
                     HorizontalAlignment="Center"
+                    IsEnabled="False"
                     Style="{StaticResource AccentButtonStyle}"
                     Click="ConnectButton_Click" />
             <ProgressRing x:Name="ConnectionProgress"
@@ -60,7 +108,8 @@
                     HorizontalAlignment="Center"
                     Visibility="Collapsed"
                     Click="ContinueButton_Click" />
-        </StackPanel>
+          </StackPanel>
+        </ScrollViewer>
 
         <TextBlock Grid.Row="1" x:Uid="Onboarding_CodeOnly_PrivacyNote"
                    Text="Setup codes expire and are only used to connect this PC."

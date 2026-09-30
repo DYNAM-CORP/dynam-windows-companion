@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls;
 using OpenClaw.Connection;
 using OpenClaw.Connection.LocalAi;
 using OpenClaw.SetupEngine;
+using OpenClaw.SetupEngine.UI.Pages;
 using OpenClaw.Shared;
 using OpenClawTray.Helpers;
 using OpenClawTray.Presentation;
@@ -525,6 +526,12 @@ internal sealed class WindowManager : IWindowManager
                 FirstRunSetupCodeConnector = startAtFirstRunCodeOnboarding
                     ? ConnectFirstRunSetupCodeAsync
                     : null,
+                FirstRunNodeCapabilitiesProvider = startAtFirstRunCodeOnboarding
+                    ? GetFirstRunNodeCapabilities
+                    : null,
+                FirstRunNodeCapabilitiesApplier = startAtFirstRunCodeOnboarding
+                    ? ApplyFirstRunNodeCapabilitiesAsync
+                    : null,
             };
             _setupWindow = setupWindow;
             _callbacks.ApplyTheme(setupWindow);
@@ -591,6 +598,52 @@ internal sealed class WindowManager : IWindowManager
             setupCode,
             progress,
             cancellationToken);
+    }
+
+    private FirstRunNodeCapabilities? GetFirstRunNodeCapabilities()
+    {
+        var settings = _callbacks.GetSettings();
+        return settings is null
+            ? null
+            : new FirstRunNodeCapabilities(
+                settings.NodeCanvasEnabled,
+                settings.NodeSystemRunEnabled,
+                settings.NodeScreenEnabled,
+                settings.NodeCameraEnabled,
+                settings.NodeLocationEnabled,
+                settings.NodeTtsEnabled,
+                settings.NodeSttEnabled,
+                settings.NodeOllamaInferenceEnabled);
+    }
+
+    private Task<bool> ApplyFirstRunNodeCapabilitiesAsync(
+        FirstRunNodeCapabilities capabilities)
+    {
+        var settings = _callbacks.GetSettings();
+        if (settings is null)
+            return Task.FromResult(false);
+
+        settings.NodeCanvasEnabled = capabilities.Canvas;
+        settings.NodeSystemRunEnabled = capabilities.SystemRun;
+        settings.NodeScreenEnabled = capabilities.Screen;
+        settings.NodeCameraEnabled = capabilities.Camera;
+        settings.NodeLocationEnabled = capabilities.Location;
+        settings.NodeTtsEnabled = capabilities.TextToSpeech;
+        settings.NodeSttEnabled = capabilities.SpeechToText;
+        settings.NodeOllamaInferenceEnabled = capabilities.LocalModelAccess;
+        // Capture-consent flags and local exec approvals are intentionally not
+        // changed here. Each sensitive capture still asks locally, and system.run
+        // keeps the device's existing approval policy.
+        try
+        {
+            settings.SaveOrThrow();
+            return Task.FromResult(true);
+        }
+        catch (Exception ex)
+        {
+            Logger.Error($"Failed to save first-run capability choices: {ex.Message}");
+            return Task.FromResult(false);
+        }
     }
 
     private void OnSetupClosed(object sender, WindowEventArgs args)

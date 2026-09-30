@@ -7172,6 +7172,20 @@ O binário wxc-exec não pôde ser localizado. {1} Se esta for uma build de dese
   <data name="VoiceSettingsPage_TtsMiniMax.Content" xml:space="preserve"><value>MiniMax (nuvem, requer chave da API)</value></data>
   <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>Conectar o DYNAM Companion</value></data>
   <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Cole o código de configuração do seu agente DYNAM para conectar este PC.</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>Escolha o que este PC compartilha com seu agente</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>Ferramentas de aplicativos e da área de trabalho</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>Executar comandos com aprovação local</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>Acesso à tela</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>Acesso à câmera</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>Acesso à localização</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>Falar em voz alta</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>Transcrever áudio</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>Usar modelos Ollama locais</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>Em um PC novo, tela, câmera e localização começam desativadas. Cada uso ainda pede sua aprovação local.</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>O controle do navegador não está disponível nesta configuração.</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>Aprovo estes recursos para este PC</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>Selecione os recursos locais e aprove-os antes de conectar.</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>Não foi possível salvar suas escolhas de recursos. Nada foi conectado.</value></data>
   <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Cole o código de configuração</value></data>
   <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Conectar</value></data>
   <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Aprove este dispositivo no seu gateway.</value></data>

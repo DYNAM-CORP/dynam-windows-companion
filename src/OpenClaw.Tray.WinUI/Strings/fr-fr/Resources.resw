@@ -7118,6 +7118,20 @@ Le binaire wxc-exec est introuvable. {1} S'il s'agit d'une build développeur, c
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw vérifie si cet appareil peut exécuter l'IA locale. Cela ne prend qu'un instant.</value></data>
   <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>Connecter DYNAM Companion</value></data>
   <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Collez le code de configuration fourni par votre agent DYNAM pour connecter ce PC.</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>Choisissez ce que ce PC partage avec votre agent</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>Outils d’app et de bureau</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>Exécuter des commandes avec approbation locale</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>Accès à l’écran</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>Accès à la caméra</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>Accès à la localisation</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>Lire à voix haute</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>Transcrire l’audio</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>Utiliser les modèles Ollama locaux</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>Sur un nouveau PC, l’écran, la caméra et la localisation sont désactivés. Chaque utilisation vous demande encore une autorisation locale.</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>Le contrôle du navigateur n’est pas disponible dans cette configuration.</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>J’approuve ces capacités pour ce PC</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>Sélectionnez les capacités locales et approuvez-les avant de vous connecter.</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>Impossible d’enregistrer vos choix de capacités. Aucune connexion n’a été établie.</value></data>
   <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Collez le code de configuration</value></data>
   <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Connecter</value></data>
   <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Approuvez cet appareil sur votre passerelle.</value></data>

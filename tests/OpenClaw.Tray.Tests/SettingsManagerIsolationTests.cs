@@ -13,6 +13,32 @@ public sealed class OpenClawTrayDataDirEnvironmentCollection
 public sealed class SettingsManagerIsolationTests
 {
     [Fact]
+    public void SettingsFilePresenceAtLoad_DistinguishesFreshFromExistingInstall()
+    {
+        var root = Path.Combine(Path.GetTempPath(), "OpenClawTray.Tests", Guid.NewGuid().ToString("N"));
+        try
+        {
+            var settings = new SettingsManager(root);
+            Assert.False(settings.SettingsFileExistedAtLoad);
+
+            settings.Save();
+            var reloaded = new SettingsManager(root);
+            Assert.True(reloaded.SettingsFileExistedAtLoad);
+            Assert.True(reloaded.NodeScreenEnabled);
+            Assert.True(reloaded.NodeCameraEnabled);
+            Assert.True(reloaded.NodeLocationEnabled);
+        }
+        finally
+        {
+            if (Directory.Exists(root))
+            {
+                // slopwatch-ignore: SW003 Test cleanup is best-effort and must not hide the assertion.
+                try { Directory.Delete(root, recursive: true); } catch { }
+            }
+        }
+    }
+
+    [Fact]
     public void OpenClawTrayDataDirRedirectsSettingsAwayFromRealAppData()
     {
         var previousOverride = Environment.GetEnvironmentVariable("OPENCLAW_TRAY_DATA_DIR");

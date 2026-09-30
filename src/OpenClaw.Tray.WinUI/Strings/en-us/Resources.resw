@@ -7182,6 +7182,20 @@ Make sure the gateway is running.</value>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw is verifying whether this device can run Local AI. This only takes a moment.</value></data>
   <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>Connect DYNAM Companion</value></data>
   <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Paste the setup code from your DYNAM agent to connect this PC.</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>Choose what this PC shares with your agent</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>App and desktop tools</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>Run commands with local approval</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>Screen access</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>Camera access</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>Location access</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>Speak aloud</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>Transcribe audio</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>Use local Ollama models</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>On a new PC, screen, camera, and location start off. Each use still asks you locally.</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>Browser control is unavailable in this setup.</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>I approve these capabilities for this PC</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>Select the local capabilities and approve them before connecting.</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>Your capability choices could not be saved. Nothing was connected.</value></data>
   <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Paste setup code</value></data>
   <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Connect</value></data>
   <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Approve this device in your gateway.</value></data>
