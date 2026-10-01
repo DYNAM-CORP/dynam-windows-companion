@@ -45,6 +45,7 @@ public sealed class FirstRunSetupCodeConnectionPolicyTests
         var paired = new GatewayConnectionSnapshot
         {
             GatewayId = "new-gateway",
+            OperatorState = RoleConnectionState.Connected,
             NodeState = RoleConnectionState.Connected,
             NodePairingStatus = PairingStatus.Paired,
         };
@@ -60,5 +61,45 @@ public sealed class FirstRunSetupCodeConnectionPolicyTests
         Assert.Equal(
             FirstRunSetupCodeState.Error,
             FirstRunSetupCodeConnectionPolicy.Project(rejected, "new-gateway")?.State);
+    }
+
+    [Theory]
+    [InlineData(RoleConnectionState.Idle)]
+    [InlineData(RoleConnectionState.Connecting)]
+    [InlineData(RoleConnectionState.RateLimited)]
+    public void Project_PairedNodeWaitsForOperatorConnection(RoleConnectionState operatorState)
+    {
+        var snapshot = new GatewayConnectionSnapshot
+        {
+            GatewayId = "new-gateway",
+            OperatorState = operatorState,
+            NodeState = RoleConnectionState.Connected,
+            NodePairingStatus = PairingStatus.Paired,
+        };
+
+        Assert.Null(FirstRunSetupCodeConnectionPolicy.Project(snapshot, "new-gateway"));
+        Assert.Equal(
+            FirstRunSetupCodeState.Connected,
+            FirstRunSetupCodeConnectionPolicy.Project(
+                snapshot with { OperatorState = RoleConnectionState.Connected }, "new-gateway")?.State);
+    }
+
+    [Theory]
+    [InlineData(RoleConnectionState.Error)]
+    [InlineData(RoleConnectionState.PairingRejected)]
+    public void Project_PairedNodeDoesNotHideOperatorFailure(RoleConnectionState operatorState)
+    {
+        var snapshot = new GatewayConnectionSnapshot
+        {
+            GatewayId = "new-gateway",
+            OperatorState = operatorState,
+            NodeState = RoleConnectionState.Connected,
+            NodePairingStatus = PairingStatus.Paired,
+        };
+
+        var status = FirstRunSetupCodeConnectionPolicy.Project(snapshot, "new-gateway");
+
+        Assert.Equal(FirstRunSetupCodeState.Error, status?.State);
+        Assert.Equal(FirstRunSetupCodeError.ConnectionFailed, status?.Error);
     }
 }
