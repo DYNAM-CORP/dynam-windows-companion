@@ -76,7 +76,7 @@ public sealed partial class ChatWindow : WindowEx
         _token = token;
         _chatUrl = ChatSurfaceResolver.BuildChatUrl(gatewayUrl, token);
         InitializeComponent();
-        Title = AppIdentity.DecorateWindowTitle("OpenClaw Chat");
+        Title = AppIdentity.DecorateWindowTitle("DYNAM Chat");
 
         this.SetWindowSize(DefaultChatWidth, DefaultChatHeight);
         this.SetIcon("Assets\\openclaw.ico");

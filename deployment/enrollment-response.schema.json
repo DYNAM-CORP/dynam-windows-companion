@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private Windows companion enrollment response. Never publish this payload.",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "purpose", "workspaceId", "runtimeId", "gatewayUrl", "setupCode", "expiresAt"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "purpose": {"const": "windows-companion"},
+    "workspaceId": {"type": "string", "minLength": 1, "maxLength": 128},
+    "runtimeId": {"type": "string", "minLength": 1, "maxLength": 128},
+    "gatewayUrl": {"type": "string", "format": "uri", "pattern": "^wss://"},
+    "setupCode": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "expiresAt": {"type": "string", "format": "date-time"}
+  }
+}

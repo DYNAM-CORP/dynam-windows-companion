@@ -184,6 +184,40 @@ public class DeviceIdentityStoreTests : IDisposable
     }
 
     [Fact]
+    public void StoreDeviceTokensForRoles_CommitsOperatorAndNodeTokensTogether()
+    {
+        var identity = CreateIdentity();
+
+        identity.StoreDeviceTokensForRoles(
+        [
+            new DeviceRoleToken("operator", "operator-token", ["operator.read"]),
+            new DeviceRoleToken("node", "node-token", []),
+        ]);
+
+        Assert.Equal("operator-token", DeviceIdentity.TryReadStoredDeviceTokenForRole(_tempDir, "operator"));
+        Assert.Equal("node-token", DeviceIdentity.TryReadStoredDeviceTokenForRole(_tempDir, "node"));
+        Assert.Equal(identity.DeviceId, ReadIdentityFile().GetProperty("DeviceId").GetString());
+    }
+
+    [Fact]
+    public void StoreDeviceTokensForRoles_WhenIdentityIsCorrupt_LeavesFileUnchanged()
+    {
+        var path = Path.Combine(_tempDir, "device-key-ed25519.json");
+        File.WriteAllText(path, "{");
+        var originalBytes = File.ReadAllBytes(path);
+        var identity = new DeviceIdentity(_tempDir);
+
+        Assert.Throws<DeviceIdentityLoadException>(() => identity.StoreDeviceTokensForRoles(
+        [
+            new DeviceRoleToken("operator", "operator-token"),
+            new DeviceRoleToken("node", "node-token"),
+        ]));
+
+        Assert.Equal(originalBytes, File.ReadAllBytes(path));
+        Assert.Empty(Directory.GetFiles(_tempDir, ".device-key-ed25519.json.*.tmp"));
+    }
+
+    [Fact]
     public void TransactionalClear_UnchangedClearedFile_RestoresPreviousTokens()
     {
         var identity = CreateIdentity();

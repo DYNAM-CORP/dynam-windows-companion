@@ -511,7 +511,7 @@
                                            Style="{StaticResource CaptionTextBlockStyle}"
                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                                 <TextBlock Grid.Row="0" Grid.Column="1"
-                                           Text="OpenClaw Windows Companion"
+                                           Text="DYNAM Windows Companion"
                                            Style="{StaticResource BodyTextBlockStyle}"
                                            IsTextSelectionEnabled="True"/>
 

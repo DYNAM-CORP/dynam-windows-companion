@@ -122,7 +122,7 @@ function Assert-WindowsReleaseTagUnpublished {
     try {
         Invoke-RestMethod `
             -Headers $RequestHeaders `
-            -Uri "https://api.github.com/repos/openclaw/openclaw-windows-node/releases/tags/$ReleaseTag" |
+            -Uri "https://api.github.com/repos/DYNAM-CORP/dynam-windows-companion/releases/tags/$ReleaseTag" |
             Out-Null
     } catch {
         $status = Get-ExceptionHttpStatus -Exception $_.Exception
@@ -141,7 +141,7 @@ function Get-CurrentWindowsReleaseTag {
 
     $release = Invoke-RestMethod `
         -Headers $RequestHeaders `
-        -Uri "https://api.github.com/repos/openclaw/openclaw-windows-node/releases/latest"
+        -Uri "https://api.github.com/repos/DYNAM-CORP/dynam-windows-companion/releases/latest"
 
     $tagName = $null
     if ($null -ne $release -and

@@ -34,6 +34,11 @@ public sealed record DeviceTokenRestoreResult(
     DeviceTokenRestoreOutcome Outcome,
     string? Error = null);
 
+public sealed record DeviceRoleToken(
+    string Role,
+    string Token,
+    IEnumerable<string>? Scopes = null);
+
 /// <summary>
 /// Manages device identity (keypair) for node authentication using Ed25519
 /// </summary>
@@ -844,6 +849,70 @@ public class DeviceIdentity
         }
 
         StoreDeviceTokenCore(token, NormalizeScopes(scopes));
+    }
+
+    /// <summary>
+    /// Stores one or more role tokens with a single locked atomic file replacement.
+    /// Bootstrap enrollment uses this to avoid clearing its recovery credential after
+    /// only one role token from a multi-role handshake has reached disk.
+    /// </summary>
+    public void StoreDeviceTokensForRoles(IEnumerable<DeviceRoleToken> tokens)
+    {
+        ArgumentNullException.ThrowIfNull(tokens);
+        var updates = tokens.Select(token =>
+        {
+            ArgumentNullException.ThrowIfNull(token);
+            var role = ParseDeviceTokenRole(token.Role);
+            if (string.IsNullOrWhiteSpace(token.Token))
+                throw new ArgumentException("Device token cannot be empty.", nameof(tokens));
+            return (Role: role, Token: token.Token, Scopes: NormalizeScopes(token.Scopes));
+        }).ToArray();
+        if (updates.Length == 0)
+            return;
+
+        try
+        {
+            WithIdentityFileLock(_keyPath, () =>
+            {
+                try
+                {
+                    var data = ReadCurrentIdentityForTokenUpdate();
+                    foreach (var update in updates)
+                    {
+                        if (update.Role == DeviceTokenRole.Node)
+                        {
+                            data.NodeDeviceToken = update.Token;
+                            data.NodeDeviceTokenScopes = update.Scopes;
+                        }
+                        else
+                        {
+                            data.DeviceToken = update.Token;
+                            data.DeviceTokenScopes = update.Scopes;
+                        }
+                    }
+
+                    AtomicWriteKeyFile(_keyPath, data);
+                    foreach (var update in updates)
+                    {
+                        if (update.Role == DeviceTokenRole.Node)
+                        {
+                            _nodeDeviceToken = update.Token;
+                            _nodeDeviceTokenScopes = update.Scopes;
+                        }
+                        else
+                        {
+                            _deviceToken = update.Token;
+                            _deviceTokenScopes = update.Scopes;
+                        }
+                    }
+                    return 0;
+                }
+                catch (DeviceIdentityLoadException) { throw; }
+                catch (Exception ex) when (IsIdentityLoadFailure(ex)) { throw CreateLoadException(ex); }
+            });
+        }
+        catch (DeviceIdentityLoadException) { throw; }
+        catch (Exception ex) when (IsIdentityLoadFailure(ex)) { throw CreateLoadException(ex); }
     }
 
     private static DeviceTokenRole ParseDeviceTokenRole(string role) => role switch

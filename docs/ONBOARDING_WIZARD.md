@@ -1,10 +1,16 @@
 # Onboarding Wizard
 
-The onboarding wizard installs a new app-owned local WSL gateway on Windows and then runs OpenClaw onboard.
+Fresh DYNAM Companion installs start with a code-only connection screen. The user pastes a short-lived setup code from their DYNAM agent, connects to that tenant's gateway, and waits for device approval. A successful connection closes the screen and leaves the normal Companion UI available. Existing paired connections do not enter this flow.
+
+The full onboarding wizard remains available from Setup Guide for users who want to install an app-owned local WSL gateway and run OpenClaw onboard.
 
 ## Overview
 
-On first launch, the wizard appears only when there is no usable saved gateway connection. Users with existing gateways manage connections from the tray app's Connections tab. The local WSL setup affordance in Connections is shown only when setup has not already created an app-owned WSL gateway on this device.
+On first launch, setup appears only when there is no usable saved gateway connection. A fresh install starts with the code-only connection screen. Users with existing gateways manage connections from the tray app's Connections tab. The local WSL setup affordance in Connections is shown only when setup has not already created an app-owned WSL gateway on this device.
+
+The DYNAM first-run code is base64url JSON with exactly `url`, `bootstrapToken`, and `expiresAtMs`. The decoder requires a future expiry no more than 10 minutes and a one-minute host clock allowance away, a DNS hostname over `wss`, and a bootstrap credential. Host checks are syntactic: they reject plain `ws`, IP addresses, loopback, Docker and common private/reserved hostname suffixes, shared-token fields, and unknown properties. They do not resolve DNS or establish a general SSRF boundary; the trusted DYNAM issuer supplies the assigned tenant URL. The URL is not hardcoded. The code and decoded credential are never displayed or logged. The connection uses the existing `GatewayConnectionManager.ApplySetupCodeAsync` path. While approval is pending, the page displays the node device ID from the active gateway's current connection snapshot.
+
+The first-run path enables Node Mode while preserving the existing capability and local approval settings, then initializes the node service before the setup code can open a gateway connection. It does not enable unrestricted `system.run` or change command approval policy. Explicit Setup Guide launches continue to use the full wizard below.
 
 The setup flow walks users through:
 
@@ -16,7 +22,7 @@ The setup flow walks users through:
 6. **OpenClaw onboard** - Gateway-driven provider/model/key configuration
 7. **All set** - Feature summary, startup preference, and completion
 
-The setup flow no longer configures remote/manual gateways inline. The Welcome page's **Connect to an existing gateway** option routes through `AdvancedSetupPage`, closes setup, and opens the tray app's Connections tab.
+The setup flow no longer configures remote/manual gateways inline. The Welcome page's **Connect to an existing gateway** option routes through `AdvancedSetupPage`, closes setup, and opens the tray app's Connections tab. This full flow is used by explicit Setup Guide launches, not by fresh DYNAM customer first launch.
 
 ## Screen Details
 
@@ -106,6 +112,9 @@ clean directory and checks every setup PNG, including nested assets.
 | Path | Purpose |
 |------|---------|
 | `src/OpenClaw.SetupEngine.UI/SetupWindow.xaml(.cs)` | Tray-hosted setup shell, run lock, preview routing, and page navigation |
+| `src/OpenClaw.SetupEngine.UI/Pages/FirstRunSetupCodePage.xaml(.cs)` | Code-only first-run connection, approval, and result states |
+| `src/OpenClaw.Connection/FirstRunSetupCodeDecoder.cs` | Strict expiry, bootstrap-only, public-WSS validation for DYNAM first-run codes |
+| `src/OpenClaw.Tray.WinUI/Services/FirstRunSetupCodeCoordinator.cs` | Applies the setup code and tracks approval for the matching gateway |
 | `src/OpenClaw.SetupEngine.UI/Pages/SecurityNoticePage.xaml(.cs)` | First-run device-trust warning before setup choices |
 | `src/OpenClaw.SetupEngine.UI/Pages/WelcomePage.xaml(.cs)` | Install-new-WSL vs connect-existing choice and existing-gateway replacement prompt |
 | `src/OpenClaw.SetupEngine.UI/Pages/AdvancedSetupPage.xaml(.cs)` | Connect-existing handoff to Connection settings |

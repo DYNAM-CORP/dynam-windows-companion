@@ -131,6 +131,34 @@ public sealed class BootstrapTokenLifecycleTests
         Assert.Equal(0, store.WriteCount);
     }
 
+    [Fact]
+    public async Task BootstrapAuthenticationMismatch_PreservesExistingOperatorDeviceToken()
+    {
+        using var temp = new TempDirectory("openclaw-bootstrap-invalid-");
+        var registry = CreateDurablyPairedRegistry(temp.Path);
+        var identityPath = registry.GetIdentityDirectory("gw-1");
+        var identity = new DeviceIdentity(identityPath, NullLogger.Instance);
+        identity.Initialize();
+        identity.StoreDeviceTokenForRole("operator", "valid-operator-token");
+        var attempt = new GatewayAttemptStamp(1, "gw-1");
+        var lifecycle = CreateLifecycle(
+            registry,
+            new AlwaysCurrentAttemptLeaseSource());
+        lifecycle.BeginOperatorConnect(attempt, usedBootstrapToken: true);
+
+        var recovered = await lifecycle.TryScheduleOperatorTokenRecoveryAsync(
+            attempt,
+            identityPath,
+            "AUTH_DEVICE_TOKEN_MISMATCH",
+            CancellationToken.None);
+
+        Assert.False(recovered);
+        Assert.Equal(
+            "valid-operator-token",
+            DeviceIdentity.TryReadStoredDeviceTokenForRole(identityPath, "operator"));
+        Assert.Equal("bootstrap-secret", registry.GetById("gw-1")?.BootstrapToken);
+    }
+
     private static BootstrapTokenLifecycle CreateLifecycle(
         GatewayRegistry registry,
         IGatewayAttemptLeaseSource attemptLeases) =>

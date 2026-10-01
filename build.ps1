@@ -62,6 +62,10 @@ param(
     
     [switch]$CheckOnly,
 
+    # Optional extracted Microsoft Windows SDK for managed WinUI builds.
+    # This avoids requiring a machine-wide SDK installer for a local pilot.
+    [string]$WindowsSdkRoot,
+
     [switch]$DevBuild,
 
     [ValidateSet("Dev", "Store")]
@@ -302,7 +306,19 @@ if (-not $nodeVersion) {
 
 # Check Windows SDK (for WinUI)
 $windowsSdkPath = "${env:ProgramFiles(x86)}\Windows Kits\10\Include"
-if (Test-Path $windowsSdkPath) {
+if ($WindowsSdkRoot) {
+    $WindowsSdkRoot = (Resolve-Path -LiteralPath $WindowsSdkRoot).Path
+    $portableSdkVersions = @(Get-ChildItem (Join-Path $WindowsSdkRoot 'bin') -Directory |
+        Where-Object {
+            $_.Name -match '^\d+\.\d+\.\d+\.\d+$' -and
+            (Test-Path (Join-Path $_.FullName 'x64\makepri.exe')) -and
+            (Test-Path (Join-Path $WindowsSdkRoot "UnionMetadata\$($_.Name)\Windows.winmd"))
+        })
+    if ($portableSdkVersions.Count -eq 0) {
+        throw 'WindowsSdkRoot must contain Microsoft SDK makepri.exe and matching Windows.winmd metadata.'
+    }
+    Write-Success "Windows SDK tools and metadata: $WindowsSdkRoot"
+} elseif (Test-Path $windowsSdkPath) {
     $sdkVersions = @(
         Get-ChildItem $windowsSdkPath -Directory |
             Where-Object { $_.Name -match "^\d+\.\d+\.\d+\.\d+$" } |
@@ -479,6 +495,9 @@ function Build-Project($name, $path, $useRid = $false, $packageMsix = $false) {
     }
     if ($DevBuild -and ($name -eq "WinUI" -or $name -eq "Tray")) {
         $dotnetArgs += "-p:DevBuild=true"
+    }
+    if ($WindowsSdkRoot) {
+        $dotnetArgs += "-p:WindowsSdkDir=$WindowsSdkRoot\"
     }
     if ($packageMsix) {
         $platform = if ($rid -eq "win-arm64") { "ARM64" } else { "x64" }
