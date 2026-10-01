@@ -9,7 +9,8 @@ param(
     [Parameter(Mandatory)][string]$ResultsDirectory,
     [Parameter(Mandatory)][string]$TrxFileName,
     [string]$Runtime,
-    [string]$Filter
+    [string]$Filter,
+    [string]$HangTimeout
 )
 
 Set-StrictMode -Version Latest
@@ -41,6 +42,18 @@ if (-not [string]::IsNullOrWhiteSpace($Runtime)) {
 if (-not [string]::IsNullOrWhiteSpace($Filter)) {
     $testArguments.Add("--filter")
     $testArguments.Add($Filter)
+}
+
+if (-not [string]::IsNullOrWhiteSpace($HangTimeout)) {
+    @(
+        "--logger",
+        "console;verbosity=detailed",
+        "--blame-hang",
+        "--blame-hang-timeout",
+        $HangTimeout,
+        "--blame-hang-dump-type",
+        "none"
+    ) | ForEach-Object { $testArguments.Add($_) }
 }
 
 $collectCoverage = $env:OPENCLAW_CI_COLLECT_COVERAGE -eq "true"
