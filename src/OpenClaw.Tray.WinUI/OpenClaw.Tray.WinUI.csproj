@@ -8,9 +8,9 @@
     <Nullable>enable</Nullable>
     <EnableMsixTooling>true</EnableMsixTooling>
     <ApplicationIcon>Assets\openclaw.ico</ApplicationIcon>
-    <AssemblyTitle>OpenClaw Companion</AssemblyTitle>
-    <FileDescription>OpenClaw Companion</FileDescription>
-    <Product>OpenClaw Companion</Product>
+    <AssemblyTitle>DYNAM Windows Companion</AssemblyTitle>
+    <FileDescription>DYNAM Windows Companion</FileDescription>
+    <Product>DYNAM Windows Companion</Product>
     <RootNamespace>OpenClawTray</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <Platforms>x64;ARM64</Platforms>
@@ -29,9 +29,9 @@
   <PropertyGroup Condition="'$(DevBuild)' == 'true'">
     <DefineConstants>$(DefineConstants);DEV_BUILD</DefineConstants>
     <AppIdentityMarker>dev</AppIdentityMarker>
-    <AssemblyTitle>OpenClaw Companion (Dev)</AssemblyTitle>
-    <FileDescription>OpenClaw Companion (Dev)</FileDescription>
-    <Product>OpenClaw Companion (Dev)</Product>
+    <AssemblyTitle>DYNAM Windows Companion (Dev)</AssemblyTitle>
+    <FileDescription>DYNAM Windows Companion (Dev)</FileDescription>
+    <Product>DYNAM Windows Companion (Dev)</Product>
   </PropertyGroup>
   <PropertyGroup Condition="'$(DevBuild)' != 'true'">
     <AppIdentityMarker>release</AppIdentityMarker>
@@ -280,7 +280,7 @@
       DevBuild="$(DevBuild)"
       IdentityName="OpenClawFoundation.OpenClaw.Dev"
       Publisher="$(OpenClawDevMsixPublisher)"
-      DisplayName="OpenClaw (Dev)"
+      DisplayName="DYNAM Windows Companion (Dev)"
       ProtocolName="openclaw-dev"
       ToastActivatorClsid="C536D4AD-19BE-4F7A-B227-AB97629BF299" />
     <ItemGroup>

@@ -4,6 +4,7 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
+using OpenClaw.Connection;
 using OpenClaw.Connection.LocalAi;
 using OpenClaw.Shared.Inference;
 using OpenClaw.SetupEngine.UI.Pages;
@@ -38,7 +39,11 @@ public sealed partial class SetupWindow : Window
 
     public event EventHandler? AdvancedSetupRequested;
     public event EventHandler<SetupCompletedEventArgs>? SetupCompleted;
+    public Func<string, IProgress<FirstRunSetupCodeStatus>, CancellationToken, Task>? FirstRunSetupCodeConnector { get; set; }
+    public Func<FirstRunNodeCapabilities?>? FirstRunNodeCapabilitiesProvider { get; set; }
+    public Func<FirstRunNodeCapabilities, Task<bool>>? FirstRunNodeCapabilitiesApplier { get; set; }
     public bool IsClosed => _isClosed;
+    public CancellationToken LifetimeToken => _lifetimeCts.Token;
     public Task CleanupCompleted => _cleanupCompleted.Task;
     internal string DataDir => _dataDir;
     internal string LocalDataDir => _localDataDir;
@@ -58,6 +63,7 @@ public sealed partial class SetupWindow : Window
         string? configPath = null,
         bool startAtGatewayInstalledMilestone = false,
         bool startAtLocalAiRecoveryReview = false,
+        bool startAtFirstRunCodeOnboarding = false,
         string? dataDir = null,
         string? localDataDir = null,
         string? distroNameOverride = null,
@@ -222,7 +228,9 @@ public sealed partial class SetupWindow : Window
             return;
         }
 
-        if (startAtGatewayInstalledMilestone)
+        if (startAtFirstRunCodeOnboarding)
+            NavigateTo(typeof(FirstRunSetupCodePage), null);
+        else if (startAtGatewayInstalledMilestone)
             NavigateToGatewayInstalledMilestone();
         else if (startAtLocalAiRecoveryReview)
             NavigateToCapabilities();
@@ -458,6 +466,16 @@ public sealed partial class SetupWindow : Window
     public void RequestAdvancedSetup()
     {
         AdvancedSetupRequested?.Invoke(this, EventArgs.Empty);
+    }
+
+    public Task ConnectWithFirstRunSetupCodeAsync(
+        string setupCode,
+        IProgress<FirstRunSetupCodeStatus> progress,
+        CancellationToken cancellationToken)
+    {
+        var connector = FirstRunSetupCodeConnector
+            ?? throw new InvalidOperationException("First-run connection is unavailable.");
+        return connector(setupCode, progress, cancellationToken);
     }
 
     public bool RequestSetupCompleted(bool enableAutoStart)

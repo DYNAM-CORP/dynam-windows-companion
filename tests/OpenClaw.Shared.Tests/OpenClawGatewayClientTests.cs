@@ -1333,7 +1333,7 @@ public class OpenClawGatewayClientTests
     }
 
     [Fact]
-    public void HelloOkWhenTokenWriteFails_CompletesHandshakeAndPublishesToken()
+    public void HelloOkWhenTokenWriteFails_CompletesHandshakeWithoutPublishingUndurableToken()
     {
         var identityPath = CreateTempIdentityPath();
         var helper = new GatewayClientTestHelper(
@@ -1369,8 +1369,7 @@ public class OpenClawGatewayClientTests
         }
 
         Assert.True(handshakeSucceeded);
-        Assert.Equal("operator-token", receivedToken?.Token);
-        Assert.Equal("operator", receivedToken?.Role);
+        Assert.Null(receivedToken);
     }
 
     [Theory]
