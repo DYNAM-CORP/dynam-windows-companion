@@ -7116,4 +7116,34 @@
   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>無法驗證本機 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>正在檢查本機 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw 正在檢查此裝置是否可以執行本機 AI。這只需要片刻。</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>連線 DYNAM Companion</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>貼上 DYNAM 智慧體提供的設定碼以連線此電腦。</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>選擇此電腦與智慧體共用的功能</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>應用程式與桌面工具</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>執行命令（需本機核准）</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>螢幕存取</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>相機存取</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>位置存取</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>語音朗讀</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>音訊轉錄</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>使用本機 Ollama 模型</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>新電腦上的螢幕、相機與位置存取預設為關閉。每次使用仍會在本機徵求核准。</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>此設定目前不提供瀏覽器控制。</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>我同意此電腦提供所選功能</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>連線前請選擇並核准本機功能。</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>無法儲存功能選擇，因此未建立連線。</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>貼上設定碼</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>連線</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>請在閘道中核准此裝置。</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>開啟 Companion</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>設定碼會過期，且僅用於連線此電腦。</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>正在連線閘道…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>等待核准。請將此裝置 ID 提供給智慧體或閘道管理員。</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>裝置 ID：{0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>暫時無法使用</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>此電腦已連線到閘道。</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>此設定碼已過期。請向智慧體索取新碼。</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>此設定碼未指向公開的安全閘道。</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>設定碼無效。請從 DYNAM 智慧體複製新碼後重試。</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>連線失敗。請檢查設定碼或稍後再試。</value></data>
 </root>

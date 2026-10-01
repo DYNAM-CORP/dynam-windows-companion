@@ -7116,4 +7116,34 @@
   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>无法验证本地 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>正在检查本地 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw 正在检查此设备是否可以运行本地 AI。这只需要片刻。</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>连接 DYNAM Companion</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>粘贴 DYNAM 智能体提供的设置代码以连接此电脑。</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>选择此电脑与智能体共享的功能</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>应用和桌面工具</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>运行命令（需本地批准）</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>屏幕访问</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>摄像头访问</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>位置访问</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>语音朗读</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>音频转录</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>使用本地 Ollama 模型</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>新电脑上的屏幕、摄像头和位置访问默认关闭。每次使用仍会在本地征求许可。</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>此设置暂不支持浏览器控制。</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>我同意此电脑提供所选功能</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>连接前请选择并批准本地功能。</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>无法保存功能选择，因此未建立连接。</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>粘贴设置代码</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>连接</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>请在网关中批准此设备。</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>打开 Companion</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>设置代码会过期，且仅用于连接此电脑。</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>正在连接网关…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>等待批准。请将此设备 ID 提供给智能体或网关管理员。</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>设备 ID：{0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>暂不可用</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>此电脑已连接到网关。</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>此设置代码已过期。请向智能体索取新代码。</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>此代码未指向公开的安全网关。</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>设置代码无效。请从 DYNAM 智能体复制新代码后重试。</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>连接失败。请检查设置代码或稍后重试。</value></data>
 </root>

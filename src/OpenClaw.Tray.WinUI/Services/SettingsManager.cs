@@ -27,6 +27,7 @@ public class SettingsManager
     public static string SettingsDirectoryPath => GetDefaultSettingsDirectory();
     public static string SettingsPath => Path.Combine(SettingsDirectoryPath, "settings.json");
     public string SettingsDirectory => _settingsDirectory;
+    public bool SettingsFileExistedAtLoad { get; private set; }
 
     /// <summary>Raised after settings are persisted to disk.</summary>
     public event EventHandler? Saved;
@@ -215,11 +216,12 @@ public class SettingsManager
     {
         LegacyToken = null;
         LegacyBootstrapToken = null;
+        SettingsFileExistedAtLoad = File.Exists(_settingsFilePath);
         _data = CreateDefaultData();
 
         try
         {
-            if (File.Exists(_settingsFilePath))
+            if (SettingsFileExistedAtLoad)
             {
                 var json = File.ReadAllText(_settingsFilePath);
                 LoadLegacyGatewayCredentials(json);
