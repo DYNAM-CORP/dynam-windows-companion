@@ -143,7 +143,7 @@ public sealed class VersioningContractTests
             "isStableCorrection: ${{ steps.release_version.outputs.isStableCorrection }}",
             workflow);
         Assert.Contains(
-            "group: openclaw-windows-node-release",
+            "group: dynam-windows-companion-release",
             workflow);
         Assert.Contains(
             "- name: Revalidate stable correction release ordering",
@@ -207,7 +207,7 @@ public sealed class VersioningContractTests
         Assert.DoesNotContain("repos/openclaw/openclaw/", validator);
         Assert.DoesNotContain("releases/tags/$Tag", validator);
         Assert.Contains(
-            "repos/openclaw/openclaw-windows-node/releases/latest",
+            "repos/DYNAM-CORP/dynam-windows-companion/releases/latest",
             validator);
         Assert.Contains("[string]$CurrentWindowsTag", validator);
     }

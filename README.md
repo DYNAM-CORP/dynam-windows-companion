@@ -1,36 +1,37 @@
-# OpenClaw Windows Hub
+# DYNAM Windows Companion
 
-![OpenClaw Windows Node banner](docs/assets/readme-banner.jpg)
+![DYNAM gold D](src/OpenClaw.Tray.WinUI/Assets/Square150x150Logo.png)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/openclaw/openclaw-windows-node/ci.yml?branch=main&style=flat-square&label=ci)](https://github.com/openclaw/openclaw-windows-node/actions/workflows/ci.yml)
-[![.NET](https://img.shields.io/badge/.NET-10.0-512bd4?style=flat-square)](https://dotnet.microsoft.com/download/dotnet/10.0)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
-[![Discord](https://img.shields.io/discord/1456350064065904867?label=discord&logo=discord&logoColor=white&color=5865F2&style=flat-square)](https://discord.gg/clawd)
+Windows tray, native agent chat and PC capabilities for DYNAM client runtimes.
+Derived from [OpenClaw Windows Node](https://github.com/openclaw/openclaw-windows-node)
+v2026.9.4 under its retained [MIT license](LICENSE).
 
-The native Windows companion for [OpenClaw](https://github.com/openclaw/openclaw). Connect your PC to a gateway, chat with your agents, and choose which Windows capabilities they can use.
+## Client deployment
 
-[Download](https://docs.openclaw.ai/platforms/windows) | [Setup guide](docs/SETUP.md) | [Windows docs](https://docs.openclaw.ai/platforms/windows) | [Discord](https://discord.gg/clawd)
+DYNAM Windows Companion is the required default Windows companion for new DYNAM
+client deployments. Rollout is gated on signed artifacts and tenant-specific
+native enrollment proof. Current policy is in [deployment/windows-companion-policy.json](deployment/windows-companion-policy.json).
+No production installer is claimed available until a signed release exists.
 
-## Install
+- [Client deployment and chat/email onboarding](docs/DYNAM-CLIENT-DEPLOYMENT.md)
+- [Build, signing and DYNAM update channel](docs/DYNAM-RELEASE.md)
+- [DYNAM releases](https://github.com/DYNAM-CORP/dynam-windows-companion/releases)
+- [Upstream capability/setup reference](docs/SETUP.md)
 
-| Architecture | Installer |
-|---|---|
-| x64 | [OpenClawCompanion-Setup-x64.exe](https://github.com/openclaw/openclaw-windows-node/releases/latest/download/OpenClawCompanion-Setup-x64.exe) |
-| ARM64 | [OpenClawCompanion-Setup-arm64.exe](https://github.com/openclaw/openclaw-windows-node/releases/latest/download/OpenClawCompanion-Setup-arm64.exe) |
-
-Requires Windows 10 20H2 or later, or Windows 11. No source build is required.
-
-On first launch, the setup wizard can install a dedicated local gateway in WSL or connect OpenClaw Companion to an existing gateway. If you do not have a gateway yet, choose **Install a local gateway (WSL)**.
+The branded build preserves existing connection data and internal installation
+identifiers. Upstream reference documentation below still describes the underlying
+OpenClaw protocol and capabilities. Client connection codes belong only in private,
+short-lived enrollment delivery, never in this public repository.
 
 ## Uninstall
 
-Go to **Settings → Apps → Installed apps**, find **OpenClaw Companion**, and click **Uninstall** (or use **Add or Remove Programs** in Control Panel). You'll be asked whether to also remove the local WSL gateway; choose **Yes** to unregister its WSL distro and generated state, or **No** to leave the gateway and that state in place.
+Go to **Settings → Apps → Installed apps**, find **DYNAM Windows Companion**, and click **Uninstall** (or use **Add or Remove Programs** in Control Panel). You'll be asked whether to also remove the local WSL gateway; choose **Yes** to unregister its WSL distro and generated state, or **No** to leave the gateway and that state in place.
 
 Your settings file at `%APPDATA%\OpenClawTray\settings.json` is not removed automatically, and device identity files for gateways unrelated to the one you removed are preserved. Choosing **Yes** also removes the removed gateway's own identity directory under `%APPDATA%\OpenClawTray\gateways\`. Root operator and node tokens are preserved only while an external gateway record remains; otherwise they are cleared, even if another local or loopback gateway record remains. Delete `%APPDATA%\OpenClawTray\` manually for a fully clean uninstall. See [docs/SETUP.md](docs/SETUP.md#uninstalling) for details, including the headless `--uninstall --confirm-destructive` CLI path used for testing.
 
 ## 🔌 Node mode (agent control)
 
-Use OpenClaw Companion for normal setup. You should not need to edit `openclaw.json` by hand.
+Use DYNAM Windows Companion for normal setup. You should not need to edit `openclaw.json` by hand.
 
 1. Open **Companion Settings…** from the tray menu.
 2. Open **Connection** and connect to your gateway. Complete any pending pairing approval shown by the app.

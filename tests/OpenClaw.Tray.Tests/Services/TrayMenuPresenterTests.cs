@@ -44,7 +44,7 @@ public sealed class TrayMenuPresenterTests
 
         Assert.Equal(
             [
-                "BrandHeader:OpenClaw",
+                "BrandHeader:DYNAM",
                 "DashboardGlance:Authentication failed · localhost:7070",
                 "Action:Pairing approval pending (3)",
                 "GatewayCard:Gateway",
@@ -137,7 +137,7 @@ public sealed class TrayMenuPresenterTests
 
         Assert.Equal(
             [
-                "BrandHeader:OpenClaw",
+                "BrandHeader:DYNAM",
                 "DashboardGlance:Disconnected · localhost:7070",
                 "GatewayCard:Gateway",
                 "Separator:",

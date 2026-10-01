@@ -222,7 +222,7 @@ public static class AutoStartManager
         throw new AutoStartRefusedException(state switch
         {
             StartupTaskState.DisabledByUser =>
-                "Windows startup is disabled by the user. Re-enable OpenClaw Companion in Settings > Apps > Startup.",
+                "Windows startup is disabled by the user. Re-enable DYNAM Windows Companion in Settings > Apps > Startup.",
             StartupTaskState.DisabledByPolicy =>
                 "Windows startup is disabled by policy.",
             _ => $"Windows did not enable the packaged startup task (state: {state})."

@@ -291,10 +291,10 @@
     <value>OpenClaw 聊天</value>
   </data>
   <data name="WindowTitle_Welcome" xml:space="preserve">
-    <value>歡迎使用 OpenClaw</value>
+    <value>歡迎使用 DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_Update" xml:space="preserve">
-    <value>OpenClaw 更新</value>
+    <value>DYNAM Windows Companion 更新</value>
   </data>
   <data name="Status_Testing" xml:space="preserve">
     <value>測試中...</value>
@@ -306,7 +306,7 @@
     <value>❌ 連線失敗</value>
   </data>
   <data name="Welcome_Title" xml:space="preserve">
-    <value>歡迎使用 OpenClaw！</value>
+    <value>歡迎使用 DYNAM Windows Companion！</value>
   </data>
   <data name="Welcome_Description" xml:space="preserve">
     <value>OpenClaw 設定是 OpenClaw 的 Windows 伴侶應用，一個 AI 驅動的個人助手。</value>
@@ -808,7 +808,7 @@
     <value>📷 相機訪問被阻止</value>
   </data>
   <data name="Toast_CameraBlockedDetail" xml:space="preserve">
-    <value>請在 Windows 隱私設定中為 OpenClaw Tray 啟用相機訪問</value>
+    <value>請在 Windows 隱私設定中為 DYNAM Windows Companion 啟用相機訪問</value>
   </data>
   <!-- ==================== Toast: Recording ==================== -->
   <data name="Toast_ScreenRecordingStarted" xml:space="preserve">
@@ -889,7 +889,7 @@
     <value>隱私</value>
   </data>
   <data name="SettingsPrivacyDescription.Text" xml:space="preserve">
-    <value>允許敏感擷取時無需每次詢問。OpenClaw 仍會在每次存取前通知您，並在錄製前顯示倒數計時。</value>
+    <value>允許敏感擷取時無需每次詢問。DYNAM Windows Companion 仍會在每次存取前通知您，並在錄製前顯示倒數計時。</value>
   </data>
   <data name="ScreenRecordingToggle.Header" xml:space="preserve">
     <value>允許螢幕錄製</value>
@@ -995,7 +995,7 @@
     <value>正在下載更新...</value>
   </data>
   <data name="UrlApproval_Caption" xml:space="preserve">
-    <value>OpenClaw: 核准 URL</value>
+    <value>DYNAM Windows Companion: 核准 URL</value>
   </data>
   <data name="UrlApproval_Body" xml:space="preserve">
     <value>代理想在您的瀏覽器中開啟高風險目標。</value>
@@ -1022,7 +1022,7 @@
     <value>否: 封鎖此項。</value>
   </data>
   <data name="Onboarding_Title" xml:space="preserve">
-    <value>OpenClaw 設定</value>
+    <value>DYNAM Windows Companion 設定</value>
   </data>
   <data name="Onboarding_Back" xml:space="preserve">
     <value>上一步</value>
@@ -1037,13 +1037,13 @@
     <value>設定尚未完成</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Body" xml:space="preserve">
-    <value>OpenClaw 仍需要完成設定，才能開啟 Hub。請使用「返回」回到精靈或連線步驟，修正缺少的設定，然後再次嘗試「完成」。</value>
+    <value>DYNAM Windows Companion 仍需要完成設定，才能開啟 Hub。請使用「返回」回到精靈或連線步驟，修正缺少的設定，然後再次嘗試「完成」。</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Close" xml:space="preserve">
     <value>確定</value>
   </data>
   <data name="Onboarding_Welcome_Title" xml:space="preserve">
-    <value>歡迎使用 OpenClaw</value>
+    <value>歡迎使用 DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_Welcome_Subtitle" xml:space="preserve">
     <value>您的 AI 助手，就在系統匣中</value>
@@ -1088,7 +1088,7 @@
     <value>一切就緒！</value>
   </data>
   <data name="Onboarding_Ready_Subtitle" xml:space="preserve">
-    <value>OpenClaw 已準備就緒。以下是可以嘗試的項目：</value>
+    <value>DYNAM Windows Companion 已準備就緒。以下是可以嘗試的項目：</value>
   </data>
   <data name="Onboarding_Ready_Feature_TrayMenu" xml:space="preserve">
     <value>開啟功能表列面板</value>
@@ -1106,7 +1106,7 @@
     <value>啟用技能</value>
   </data>
   <data name="Onboarding_Ready_LaunchAtLogin" xml:space="preserve">
-    <value>開機時啟動 OpenClaw</value>
+    <value>開機時啟動 DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_Ready_ConfigureLater" xml:space="preserve">
     <value>您可以隨時從系統匣選單設定閘道連線。</value>
@@ -1166,7 +1166,7 @@
     <value>授予權限</value>
   </data>
   <data name="Onboarding_Permissions_Description" xml:space="preserve">
-    <value>當 OpenClaw 可以傳送通知、存取相機和麥克風、擷取螢幕並知道你的位置時效果最佳。請在下方授與權限。</value>
+    <value>當 DYNAM Windows Companion 可以傳送通知、存取相機和麥克風、擷取螢幕並知道你的位置時效果最佳。請在下方授與權限。</value>
   </data>
   <data name="Onboarding_Permissions_Refresh" xml:space="preserve">
     <value>重新整理狀態</value>
@@ -1337,7 +1337,7 @@
     <value>無法從此影像解碼設定代碼</value>
   </data>
   <data name="Onboarding_Connection_SshHint" xml:space="preserve">
-    <value>OpenClaw 將建立受控 SSH 通道，將遠端主機上的閘道連接埠轉送到此電腦。</value>
+    <value>DYNAM Windows Companion 將建立受控 SSH 通道，將遠端主機上的閘道連接埠轉送到此電腦。</value>
   </data>
   <data name="Onboarding_Connection_SshUser" xml:space="preserve">
     <value>SSH 使用者</value>
@@ -1367,7 +1367,7 @@
     <value>您可以稍後在「設定」中設定閘道。</value>
   </data>
   <data name="Onboarding_SetupWarning_Title" xml:space="preserve">
-    <value>設定 OpenClaw</value>
+    <value>設定 DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_SetupWarning_Body" xml:space="preserve">
     <value>OpenClaw 允許代理在此電腦上執行命令、讀寫檔案以及擷取螢幕畫面。僅在您信任的電腦上進行設定。
@@ -1612,7 +1612,7 @@
     <value>Saving configuration</value>
   </data>
   <data name="ConfigPage_ReconnectDialogBody" xml:space="preserve">
-    <value>OpenClaw is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
+    <value>DYNAM Windows Companion is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
   </data>
   <data name="ConfigPage_ReconnectDialogAccepted" xml:space="preserve">
     <value>Gateway is restarting...</value>
@@ -2224,7 +2224,7 @@
     <value>連線到閘道以開始聊天</value>
   </data>
   <data name="TitleText.Text" xml:space="preserve">
-    <value>OpenClaw Windows Companion</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="NavPaneToggleButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>切換導覽窗格</value>
@@ -2431,22 +2431,22 @@
     <value>工作區檔案</value>
   </data>
   <data name="ChatWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Chat</value>
+    <value>DYNAM Chat</value>
   </data>
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>輸入命令...</value>
   </data>
   <data name="HubWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="TitleSearchBox.PlaceholderText" xml:space="preserve">
     <value>搜尋… (Ctrl+E)</value>
   </data>
   <data name="CanvasWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindow_TextBlock_31.Text" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindowReloadToolTip.Content" xml:space="preserve">
     <value>重新載入</value>
@@ -2455,7 +2455,7 @@
     <value>重新載入 Canvas</value>
   </data>
   <data name="TrayMenuWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Menu</value>
+    <value>DYNAM Menu</value>
   </data>
   <data name="UsagePage_TextBlock_10.Text" xml:space="preserve">
     <value>使用量與成本</value>
@@ -3130,7 +3130,7 @@
     <value>閘道連線失敗</value>
   </data>
   <data name="AppNotification_GatewayConnectionFailed_DefaultMessage" xml:space="preserve">
-    <value>OpenClaw 無法連線到作用中閘道。</value>
+    <value>DYNAM Windows Companion 無法連線到作用中閘道。</value>
   </data>
   <data name="AppNotification_GatewayPairingRequired_Title" xml:space="preserve">
     <value>需要核准閘道配對</value>
@@ -3200,7 +3200,7 @@
     <value>通知</value>
   </data>
   <data name="NotificationsPage_Subtitle.Text" xml:space="preserve">
-    <value>檢閱並清除作用中的 OpenClaw 通知。</value>
+    <value>檢閱並清除作用中的 DYNAM Windows Companion 通知。</value>
   </data>
   <data name="NotificationsPage_ClearButton.Content" xml:space="preserve">
     <value>清除</value>
@@ -3341,7 +3341,7 @@
     <value>已捨棄閘道時間軸事件</value>
   </data>
   <data name="Chat_Notification_KeylessEventDroppedMessage" xml:space="preserve">
-    <value>閘道傳送了缺少工作階段金鑰的聊天時間軸事件，OpenClaw 已將其忽略，以避免混淆時間軸。如果此情況持續，請更新或重新啟動閘道。</value>
+    <value>閘道傳送了缺少工作階段金鑰的聊天時間軸事件，DYNAM Windows Companion 已將其忽略，以避免混淆時間軸。如果此情況持續，請更新或重新啟動閘道。</value>
   </data>
   <data name="VoiceSettingsPage_TestVoiceButtonText.Text" xml:space="preserve">
     <value>測試語音輸入</value>
@@ -3587,7 +3587,7 @@
     <value>{0}天前</value>
   </data>
   <data name="V2_Window_Title" xml:space="preserve">
-    <value>OpenClaw Setup</value>
+    <value>DYNAM Windows Companion Setup</value>
   </data>
   <data name="V2_Nav_Back" xml:space="preserve">
     <value>Back</value>
@@ -3599,7 +3599,7 @@
     <value>Finish</value>
   </data>
   <data name="V2_Welcome_Title" xml:space="preserve">
-    <value>Get started with OpenClaw</value>
+    <value>Get started with DYNAM Windows Companion</value>
   </data>
   <data name="V2_Welcome_Body" xml:space="preserve">
     <value>OpenClaw lets agents run commands, read and write files, and capture screenshots on this PC. Only set it up on a computer you trust.</value>
@@ -3686,7 +3686,7 @@
     <value>Grant permissions</value>
   </data>
   <data name="V2_Permissions_Body" xml:space="preserve">
-    <value>OpenClaw works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
+    <value>DYNAM Windows Companion works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
   </data>
   <data name="V2_Permissions_Row_Notifications" xml:space="preserve">
     <value>Notifications</value>
@@ -3719,7 +3719,7 @@
     <value>All set!</value>
   </data>
   <data name="V2_AllSet_Subtitle" xml:space="preserve">
-    <value>OpenClaw is ready to go</value>
+    <value>DYNAM Windows Companion is ready to go</value>
   </data>
   <data name="V2_AllSet_NodeMode_Title" xml:space="preserve">
     <value>Node Mode Active</value>
@@ -3728,7 +3728,7 @@
     <value>This PC will operate as a remote compute node. The gateway can invoke screen capture, camera, and system commands on this machine.</value>
   </data>
   <data name="V2_AllSet_StartupQuestion" xml:space="preserve">
-    <value>Launch OpenClaw at startup?</value>
+    <value>Launch DYNAM Windows Companion at startup?</value>
   </data>
   <data name="V2_AllSet_On" xml:space="preserve">
     <value>On</value>
@@ -4013,7 +4013,7 @@
     <value>Chat surface overrides</value>
   </data>
   <data name="DiagnosticsPage_Expander_ChatOverrides.Description" xml:space="preserve">
-    <value>Per-surface override of the chat UI. Resets when OpenClaw restarts.</value>
+    <value>Per-surface override of the chat UI. Resets when DYNAM Windows Companion restarts.</value>
   </data>
   <data name="DiagnosticsPage_Card_HubChat.Header" xml:space="preserve">
     <value>Hub chat tab</value>
@@ -4025,7 +4025,7 @@
     <value>Back to Diagnostics</value>
   </data>
   <data name="SettingsRow_AutoStart_Description.Text" xml:space="preserve">
-    <value>Launch OpenClaw automatically when you sign in.</value>
+    <value>Launch DYNAM Windows Companion automatically when you sign in.</value>
   </data>
   <data name="SettingsRow_GlobalHotkey_Description.Text" xml:space="preserve">
     <value>Enable global hotkeys (Ctrl+Alt+Shift+V for voice, Ctrl+Alt+; for settings).</value>
@@ -4541,7 +4541,7 @@
     <value>攝影機、麥克風與螢幕存取</value>
   </data>
   <data name="PermissionsPage_SystemLevelPrivacyPermissions.Text" xml:space="preserve">
-    <value>系統層級的隱私權限由 Windows 管理。開啟 Windows 隱私設定以授予或撤銷 OpenClaw 的存取權。</value>
+    <value>系統層級的隱私權限由 Windows 管理。開啟 Windows 隱私設定以授予或撤銷 DYNAM Windows Companion 的存取權。</value>
   </data>
   <data name="SandboxPage_NodeSandboxIsOn.Text" xml:space="preserve">
     <value>節點沙箱已開啟</value>
@@ -4980,7 +4980,7 @@
     <value>偵測到 MSIX 安裝</value>
   </data>
   <data name="SettingsPage_MSIXInstallationDetected.Message" xml:space="preserve">
-    <value>透過 Windows 設定 &amp;amp;#x2192; 應用程式移除 OpenClaw 不會清除本機閘道(WSL 散發版、磁碟映像)。請先使用下方的「移除本機閘道」,然後再解除安裝 OpenClaw。</value>
+    <value>透過 Windows 設定 &amp;amp;#x2192; 應用程式移除 DYNAM Windows Companion 不會清除本機閘道(WSL 散發版、磁碟映像)。請先使用下方的「移除本機閘道」,然後再解除安裝 DYNAM Windows Companion。</value>
   </data>
   <data name="SettingsPage_RemovesTheWSLDistro.Text" xml:space="preserve">
     <value>移除 WSL 散發版 (OpenClawGateway)、其磁碟映像、自動啟動項目,並清除閘道認證。您的 MCP 權杖會保留。導覽流程將重設。</value>
@@ -6514,7 +6514,7 @@
     <value>未設定閘道</value>
   </data>
   <data name="DebugPage_StatusConnectedFormat" xml:space="preserve">
-    <value>OpenClaw 已連線到 {0}。</value>
+    <value>DYNAM Windows Companion 已連線到 {0}。</value>
   </data>
   <data name="DebugPage_StatusConnectingFormat" xml:space="preserve">
     <value>正在連線到 {0}…</value>
@@ -7116,4 +7116,34 @@
   <data name="LocalAiPage_UnavailableProbeTitle" xml:space="preserve"><value>無法驗證本機 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingTitle" xml:space="preserve"><value>正在檢查本機 AI 可用性</value></data>
   <data name="LocalAiPage_CheckingMessage" xml:space="preserve"><value>OpenClaw 正在檢查此裝置是否可以執行本機 AI。這只需要片刻。</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>連線 DYNAM Companion</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>貼上 DYNAM 智慧體提供的設定碼以連線此電腦。</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>選擇此電腦與智慧體共用的功能</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>應用程式與桌面工具</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>執行命令（需本機核准）</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>螢幕存取</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>相機存取</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>位置存取</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>語音朗讀</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>音訊轉錄</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>使用本機 Ollama 模型</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>新電腦上的螢幕、相機與位置存取預設為關閉。每次使用仍會在本機徵求核准。</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>此設定目前不提供瀏覽器控制。</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>我同意此電腦提供所選功能</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>連線前請選擇並核准本機功能。</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>無法儲存功能選擇，因此未建立連線。</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>貼上設定碼</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>連線</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>請在閘道中核准此裝置。</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>開啟 Companion</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>設定碼會過期，且僅用於連線此電腦。</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>正在連線閘道…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>等待核准。請將此裝置 ID 提供給智慧體或閘道管理員。</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>裝置 ID：{0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>暫時無法使用</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>此電腦已連線到閘道。</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>此設定碼已過期。請向智慧體索取新碼。</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>此設定碼未指向公開的安全閘道。</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>設定碼無效。請從 DYNAM 智慧體複製新碼後重試。</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>連線失敗。請檢查設定碼或稍後再試。</value></data>
 </root>

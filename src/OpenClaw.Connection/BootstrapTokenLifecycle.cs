@@ -379,6 +379,15 @@ internal sealed class BootstrapTokenLifecycle
         {
             if (_operatorTokenRecoveryAttemptedGatewayId == attempt.GatewayRecordId)
                 return false;
+
+            if (_activeAttempt == attempt && _activeConnectUsedBootstrapToken)
+            {
+                _diagnostics.Record(
+                    "credential",
+                    "Skipped operator device-token recovery after bootstrap authentication failure",
+                    "The failed connection used the setup credential; stored device tokens were preserved.");
+                return false;
+            }
         }
 
         var record = _registry.GetById(attempt.GatewayRecordId);

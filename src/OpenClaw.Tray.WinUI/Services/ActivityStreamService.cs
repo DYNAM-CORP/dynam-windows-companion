@@ -77,7 +77,7 @@ public static class ActivityStreamService
 
         var lines = new List<string>
         {
-            "OpenClaw Tray activity support bundle",
+            "DYNAM Windows Companion activity support bundle",
             $"Generated: {DateTimeOffset.Now:O}",
             $"Items: {snapshot.Count}",
             ""

@@ -2358,17 +2358,14 @@ public partial class OpenClawGatewayClient : WebSocketClientBase, IOperatorGatew
             _logger.Info($"[HANDSHAKE] deviceId={_operatorDeviceId}, scopes=[{string.Join(", ", _grantedOperatorScopes)}], mainSession={_mainSessionKey ?? "(unset)"}");
             PublishGatewaySelf(GatewaySelfInfo.FromHelloOk(payload));
 
-            var persistedRoleTokens = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            foreach (var roleToken in EnumerateHandshakeDeviceTokens(payload))
-            {
-                var stored = TryStoreHandshakeDeviceToken(roleToken.Role, roleToken.Token, roleToken.Scopes);
-                persistedRoleTokens.Add(roleToken.Role);
-                if (stored && roleToken.Role.Equals("node", StringComparison.OrdinalIgnoreCase))
-                    _logger.Info("Node device token stored for Windows tray node reconnect");
-                else if (stored)
-                    _logger.Info($"{roleToken.Role} device token stored for reconnect");
-                DeviceTokenReceived?.Invoke(this, new DeviceTokenReceivedEventArgs(roleToken.Token, roleToken.Scopes, roleToken.Role));
-            }
+            var roleTokens = EnumerateHandshakeDeviceTokens(payload)
+                .Select(token => new DeviceRoleToken(token.Role, token.Token, token.Scopes))
+                .GroupBy(token => token.Role, StringComparer.OrdinalIgnoreCase)
+                .Select(group => group.Last())
+                .ToList();
+            var persistedRoleTokens = new HashSet<string>(
+                roleTokens.Select(token => token.Role),
+                StringComparer.OrdinalIgnoreCase);
 
             if (_bootstrapPairAsNode && !persistedRoleTokens.Contains("node"))
             {
@@ -2376,11 +2373,8 @@ public partial class OpenClawGatewayClient : WebSocketClientBase, IOperatorGatew
                 if (!string.IsNullOrWhiteSpace(nodeDeviceToken))
                 {
                     var nodeDeviceTokenScopes = TryGetHandshakeDeviceTokenScopesCore(payload, "node", allowDirectDeviceTokenFallback: true);
-                    var stored = TryStoreHandshakeDeviceToken("node", nodeDeviceToken, nodeDeviceTokenScopes);
+                    roleTokens.Add(new DeviceRoleToken("node", nodeDeviceToken, nodeDeviceTokenScopes));
                     persistedRoleTokens.Add("node");
-                    if (stored)
-                        _logger.Info("Node device token stored for Windows tray node reconnect");
-                    DeviceTokenReceived?.Invoke(this, new DeviceTokenReceivedEventArgs(nodeDeviceToken, nodeDeviceTokenScopes, "node"));
                 }
             }
 
@@ -2392,11 +2386,33 @@ public partial class OpenClawGatewayClient : WebSocketClientBase, IOperatorGatew
                 var deviceTokenScopes = _bootstrapPairAsNode
                     ? TryGetHandshakeDeviceTokenScopesCore(payload, OperatorRole, allowDirectDeviceTokenFallback: false)
                     : TryGetHandshakeDeviceTokenScopesCore(payload, preferredRole: null);
-                var stored = TryStoreHandshakeDeviceToken(OperatorRole, newDeviceToken, deviceTokenScopes);
+                roleTokens.Add(new DeviceRoleToken(OperatorRole, newDeviceToken, deviceTokenScopes));
+                persistedRoleTokens.Add(OperatorRole);
                 _connectAuthToken = newDeviceToken;
-                if (stored)
-                    _logger.Info("Operator device token stored for reconnect");
-                DeviceTokenReceived?.Invoke(this, new DeviceTokenReceivedEventArgs(newDeviceToken, deviceTokenScopes, "operator"));
+            }
+
+            // Persist all role grants from this handshake in one identity-file
+            // replacement before notifying the connection manager. The manager may
+            // clear the bootstrap credential as soon as it observes both durable roles.
+            var storedRoleTokens = TryStoreHandshakeDeviceTokens(roleTokens);
+            if (!_persistHandshakeDeviceTokens || storedRoleTokens)
+            {
+                foreach (var roleToken in roleTokens)
+                {
+                    if (_persistHandshakeDeviceTokens)
+                    {
+                        if (roleToken.Role.Equals("node", StringComparison.OrdinalIgnoreCase))
+                            _logger.Info("Node device token stored for Windows tray node reconnect");
+                        else
+                            _logger.Info($"{roleToken.Role} device token stored for reconnect");
+                    }
+                    DeviceTokenReceived?.Invoke(
+                        this,
+                        new DeviceTokenReceivedEventArgs(
+                            roleToken.Token,
+                            roleToken.Scopes?.ToArray(),
+                            roleToken.Role));
+                }
             }
 
             _logger.Info("Handshake complete (hello-ok)");
@@ -2454,23 +2470,26 @@ public partial class OpenClawGatewayClient : WebSocketClientBase, IOperatorGatew
         }
     }
 
-    private bool TryStoreHandshakeDeviceToken(string role, string token, string[]? scopes)
+    private bool TryStoreHandshakeDeviceTokens(IReadOnlyCollection<DeviceRoleToken> tokens)
     {
-        if (!_persistHandshakeDeviceTokens)
+        if (!_persistHandshakeDeviceTokens || tokens.Count == 0)
             return false;
 
         try
         {
-            _deviceIdentity.StoreDeviceTokenForRole(role, token, scopes);
+            _deviceIdentity.StoreDeviceTokensForRoles(tokens);
             return true;
         }
         catch (DeviceIdentityLoadException ex)
         {
             _logger.Error(
-                $"Failed to persist {role} device token during handshake; connection remains active: {ex.InnerException?.Message}");
+                $"Failed to persist role device tokens atomically during handshake; connection remains active with bootstrap credentials available: {ex.InnerException?.Message}");
             return false;
         }
     }
+
+    private bool TryStoreHandshakeDeviceToken(string role, string token, string[]? scopes) =>
+        TryStoreHandshakeDeviceTokens([new DeviceRoleToken(role, token, scopes)]);
 
     private bool HandleKnownResponse(string method, JsonElement payload)
     {

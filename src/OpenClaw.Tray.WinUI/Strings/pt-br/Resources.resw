@@ -301,25 +301,25 @@
   <!-- ==================== Runtime strings (C# code) ==================== -->
   <!-- Window titles -->
   <data name="WindowTitle_Settings" xml:space="preserve">
-    <value>Configurações: OpenClaw Tray</value>
+    <value>Configurações: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_Status" xml:space="preserve">
     <value>Status: Bandeja do OpenClaw</value>
   </data>
   <data name="WindowTitle_ActivityStream" xml:space="preserve">
-    <value>Fluxo de atividade: OpenClaw Tray</value>
+    <value>Fluxo de atividade: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_NotificationHistory" xml:space="preserve">
-    <value>Histórico de notificações: OpenClaw Tray</value>
+    <value>Histórico de notificações: DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_WebChat" xml:space="preserve">
     <value>Chat do OpenClaw</value>
   </data>
   <data name="WindowTitle_Welcome" xml:space="preserve">
-    <value>Bem vindo ao OpenClaw</value>
+    <value>Bem vindo ao DYNAM Windows Companion</value>
   </data>
   <data name="WindowTitle_Update" xml:space="preserve">
-    <value>Atualização do OpenClaw</value>
+    <value>Atualização do DYNAM Windows Companion</value>
   </data>
   <!-- Settings runtime status -->
   <data name="Status_Testing" xml:space="preserve">
@@ -333,10 +333,10 @@
   </data>
   <!-- WelcomeDialog -->
   <data name="Welcome_Title" xml:space="preserve">
-    <value>Bem-vindo ao OpenClaw!</value>
+    <value>Bem-vindo ao DYNAM Windows Companion!</value>
   </data>
   <data name="Welcome_Description" xml:space="preserve">
-    <value>O OpenClaw Tray é seu aplicativo complementar para Windows do OpenClaw, o assistente pessoal com tecnologia de IA.</value>
+    <value>O DYNAM Windows Companion é seu aplicativo complementar para Windows do OpenClaw, o assistente pessoal com tecnologia de IA.</value>
   </data>
   <data name="Welcome_GettingStarted" xml:space="preserve">
     <value>Para começar, você precisará de:</value>
@@ -540,7 +540,7 @@
     <value>Notificação de teste</value>
   </data>
   <data name="TestNotification_Body" xml:space="preserve">
-    <value>Esta é uma notificação de teste do OpenClaw Tray.</value>
+    <value>Esta é uma notificação de teste do DYNAM Windows Companion.</value>
   </data>
   <!-- Status detail runtime -->
   <data name="Status_LastCheckFormat" xml:space="preserve">
@@ -851,7 +851,7 @@ Use uma destas opções:
     <value>📷 Acesso à câmera bloqueado</value>
   </data>
   <data name="Toast_CameraBlockedDetail" xml:space="preserve">
-    <value>Ative o acesso à câmera nas configurações de privacidade do Windows para o OpenClaw Tray</value>
+    <value>Ative o acesso à câmera nas configurações de privacidade do Windows para o DYNAM Windows Companion</value>
   </data>
   <!-- ==================== Toast: Recording ==================== -->
   <data name="Toast_ScreenRecordingStarted" xml:space="preserve">
@@ -932,7 +932,7 @@ Use uma destas opções:
     <value>Privacidade</value>
   </data>
   <data name="SettingsPrivacyDescription.Text" xml:space="preserve">
-    <value>Permita captura sensível sem perguntar todas as vezes. O OpenClaw ainda notifica você antes de cada acesso e mostra uma contagem regressiva antes das gravações.</value>
+    <value>Permita captura sensível sem perguntar todas as vezes. O DYNAM Windows Companion ainda notifica você antes de cada acesso e mostra uma contagem regressiva antes das gravações.</value>
   </data>
   <data name="ScreenRecordingToggle.Header" xml:space="preserve">
     <value>Permitir gravação de tela</value>
@@ -1042,7 +1042,7 @@ Use uma destas opções:
   </data>
   <!-- ==================== UrlNavigationApprovalService prompt ==================== -->
   <data name="UrlApproval_Caption" xml:space="preserve">
-    <value>OpenClaw: Aprovar URL</value>
+    <value>DYNAM Windows Companion: Aprovar URL</value>
   </data>
   <data name="UrlApproval_Body" xml:space="preserve">
     <value>Um agente quer abrir um destino de alto risco no seu navegador.</value>
@@ -1069,7 +1069,7 @@ Use uma destas opções:
     <value>Não: bloquear esta URL.</value>
   </data>
   <data name="Onboarding_Title" xml:space="preserve">
-    <value>Configuração do OpenClaw</value>
+    <value>Configuração do DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_Back" xml:space="preserve">
     <value>Voltar</value>
@@ -1084,7 +1084,7 @@ Use uma destas opções:
     <value>A configuração não está concluída</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Body" xml:space="preserve">
-    <value>O OpenClaw ainda precisa ser configurado antes de abrir o Hub. Use Voltar para retornar ao assistente ou às etapas de conexão, corrija o que estiver faltando e tente Concluir novamente.</value>
+    <value>O DYNAM Windows Companion ainda precisa ser configurado antes de abrir o Hub. Use Voltar para retornar ao assistente ou às etapas de conexão, corrija o que estiver faltando e tente Concluir novamente.</value>
   </data>
   <data name="Onboarding_IncompleteSetup_Close" xml:space="preserve">
     <value>OK</value>
@@ -1108,7 +1108,7 @@ Use uma destas opções:
     <value>Tudo pronto!</value>
   </data>
   <data name="Onboarding_Ready_Subtitle" xml:space="preserve">
-    <value>O OpenClaw está pronto para usar. Aqui estão algumas coisas que você pode experimentar:</value>
+    <value>O DYNAM Windows Companion está pronto para usar. Aqui estão algumas coisas que você pode experimentar:</value>
   </data>
   <data name="Onboarding_Ready_Feature_TrayMenu" xml:space="preserve">
     <value>Abrir painel do menu da bandeja</value>
@@ -1126,7 +1126,7 @@ Use uma destas opções:
     <value>Ativar Skills</value>
   </data>
   <data name="Onboarding_Ready_LaunchAtLogin" xml:space="preserve">
-    <value>Iniciar o OpenClaw na inicialização</value>
+    <value>Iniciar o DYNAM Windows Companion na inicialização</value>
   </data>
   <data name="Onboarding_Ready_ConfigureLater" xml:space="preserve">
     <value>Você pode configurar sua conexão com o Gateway a qualquer momento pelo menu da bandeja.</value>
@@ -1186,7 +1186,7 @@ Use uma destas opções:
     <value>Conceder permissões</value>
   </data>
   <data name="Onboarding_Permissions_Description" xml:space="preserve">
-    <value>O OpenClaw funciona melhor quando pode enviar notificações, acessar sua câmera e seu microfone, capturar sua tela e saber sua localização. Conceda as permissões abaixo.</value>
+    <value>O DYNAM Windows Companion funciona melhor quando pode enviar notificações, acessar sua câmera e seu microfone, capturar sua tela e saber sua localização. Conceda as permissões abaixo.</value>
   </data>
   <data name="Onboarding_Permissions_Refresh" xml:space="preserve">
     <value>Atualizar status</value>
@@ -1357,7 +1357,7 @@ Use uma destas opções:
     <value>Não foi possível decodificar o código de configuração desta imagem</value>
   </data>
   <data name="Onboarding_Connection_SshHint" xml:space="preserve">
-    <value>O OpenClaw criará um túnel SSH gerenciado para encaminhar a porta do Gateway do host remoto para este PC.</value>
+    <value>O DYNAM Windows Companion criará um túnel SSH gerenciado para encaminhar a porta do Gateway do host remoto para este PC.</value>
   </data>
   <data name="Onboarding_Connection_SshUser" xml:space="preserve">
     <value>Usuário SSH</value>
@@ -1387,7 +1387,7 @@ Use uma destas opções:
     <value>Você pode configurar o Gateway mais tarde nas Configurações.</value>
   </data>
   <data name="Onboarding_SetupWarning_Title" xml:space="preserve">
-    <value>Configurar o OpenClaw</value>
+    <value>Configurar o DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_SetupWarning_Body" xml:space="preserve">
     <value>O OpenClaw permite que agentes executem comandos, leiam e gravem arquivos e capturem capturas de tela neste PC. Configure-o somente em um computador em que você confia.
@@ -1452,7 +1452,7 @@ Use uma destas opções:
     <value>Gerando código de configuração</value>
   </data>
   <data name="Onboarding_Welcome_Title" xml:space="preserve">
-    <value>Bem-vindo ao OpenClaw</value>
+    <value>Bem-vindo ao DYNAM Windows Companion</value>
   </data>
   <data name="Onboarding_Welcome_Subtitle" xml:space="preserve">
     <value>Seu assistente de IA na bandeja do sistema</value>
@@ -1656,7 +1656,7 @@ Use uma destas opções:
     <value>Saving configuration</value>
   </data>
   <data name="ConfigPage_ReconnectDialogBody" xml:space="preserve">
-    <value>OpenClaw is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
+    <value>DYNAM Windows Companion is applying your edits. The gateway may restart briefly and reconnect automatically.</value>
   </data>
   <data name="ConfigPage_ReconnectDialogAccepted" xml:space="preserve">
     <value>Gateway is restarting...</value>
@@ -2270,7 +2270,7 @@ Use uma destas opções:
     <value>Conecte-se ao Gateway para começar a conversar</value>
   </data>
   <data name="TitleText.Text" xml:space="preserve">
-    <value>OpenClaw Windows Companion</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="NavPaneToggleButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>Alternar painel de navegação</value>
@@ -2477,22 +2477,22 @@ Use uma destas opções:
     <value>Arquivos do workspace</value>
   </data>
   <data name="ChatWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Chat</value>
+    <value>DYNAM Chat</value>
   </data>
   <data name="SearchBox.PlaceholderText" xml:space="preserve">
     <value>Digite um comando...</value>
   </data>
   <data name="HubWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw</value>
+    <value>DYNAM Windows Companion</value>
   </data>
   <data name="TitleSearchBox.PlaceholderText" xml:space="preserve">
     <value>Pesquisar… (Ctrl+E)</value>
   </data>
   <data name="CanvasWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindow_TextBlock_31.Text" xml:space="preserve">
-    <value>OpenClaw Canvas</value>
+    <value>DYNAM Canvas</value>
   </data>
   <data name="CanvasWindowReloadToolTip.Content" xml:space="preserve">
     <value>Recarregar</value>
@@ -2501,7 +2501,7 @@ Use uma destas opções:
     <value>Recarregar Canvas</value>
   </data>
   <data name="TrayMenuWindow_winexWindowEx_2.Title" xml:space="preserve">
-    <value>OpenClaw Menu</value>
+    <value>DYNAM Menu</value>
   </data>
   <data name="UsagePage_TextBlock_10.Text" xml:space="preserve">
     <value>Uso e Custo</value>
@@ -3173,7 +3173,7 @@ Use uma destas opções:
     <value>Falha na conexão com o Gateway</value>
   </data>
   <data name="AppNotification_GatewayConnectionFailed_DefaultMessage" xml:space="preserve">
-    <value>O OpenClaw não conseguiu se conectar ao Gateway ativo.</value>
+    <value>O DYNAM Windows Companion não conseguiu se conectar ao Gateway ativo.</value>
   </data>
   <data name="AppNotification_GatewayPairingRequired_Title" xml:space="preserve">
     <value>Aprovação de pareamento do Gateway necessária</value>
@@ -3243,7 +3243,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Notificações</value>
   </data>
   <data name="NotificationsPage_Subtitle.Text" xml:space="preserve">
-    <value>Revise e limpe as notificações ativas do OpenClaw.</value>
+    <value>Revise e limpe as notificações ativas do DYNAM Windows Companion.</value>
   </data>
   <data name="NotificationsPage_ClearButton.Content" xml:space="preserve">
     <value>Limpar</value>
@@ -3360,7 +3360,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Evento de linha do tempo do Gateway descartado</value>
   </data>
   <data name="Chat_Notification_KeylessEventDroppedMessage" xml:space="preserve">
-    <value>O Gateway enviou um evento de linha do tempo do chat sem uma chave de sessão, então o OpenClaw o ignorou para evitar misturar linhas do tempo. Atualize ou reinicie o Gateway se isso continuar.</value>
+    <value>O Gateway enviou um evento de linha do tempo do chat sem uma chave de sessão, então o DYNAM Windows Companion o ignorou para evitar misturar linhas do tempo. Atualize ou reinicie o Gateway se isso continuar.</value>
   </data>
   <data name="VoiceSettingsPage_TestVoiceButtonText.Text" xml:space="preserve">
     <value>Testar entrada de voz</value>
@@ -3606,7 +3606,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>há {0}d</value>
   </data>
   <data name="V2_Window_Title" xml:space="preserve">
-    <value>OpenClaw Setup</value>
+    <value>DYNAM Windows Companion Setup</value>
   </data>
   <data name="V2_Nav_Back" xml:space="preserve">
     <value>Back</value>
@@ -3618,7 +3618,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Finish</value>
   </data>
   <data name="V2_Welcome_Title" xml:space="preserve">
-    <value>Get started with OpenClaw</value>
+    <value>Get started with DYNAM Windows Companion</value>
   </data>
   <data name="V2_Welcome_Body" xml:space="preserve">
     <value>OpenClaw lets agents run commands, read and write files, and capture screenshots on this PC. Only set it up on a computer you trust.</value>
@@ -3705,7 +3705,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Grant permissions</value>
   </data>
   <data name="V2_Permissions_Body" xml:space="preserve">
-    <value>OpenClaw works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
+    <value>DYNAM Windows Companion works best when it can send notifications, access your camera and microphone, capture your screen, and know your location. Grant permissions below.</value>
   </data>
   <data name="V2_Permissions_Row_Notifications" xml:space="preserve">
     <value>Notifications</value>
@@ -3738,7 +3738,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>All set!</value>
   </data>
   <data name="V2_AllSet_Subtitle" xml:space="preserve">
-    <value>OpenClaw is ready to go</value>
+    <value>DYNAM Windows Companion is ready to go</value>
   </data>
   <data name="V2_AllSet_NodeMode_Title" xml:space="preserve">
     <value>Node Mode Active</value>
@@ -3747,7 +3747,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>This PC will operate as a remote compute node. The gateway can invoke screen capture, camera, and system commands on this machine.</value>
   </data>
   <data name="V2_AllSet_StartupQuestion" xml:space="preserve">
-    <value>Launch OpenClaw at startup?</value>
+    <value>Launch DYNAM Windows Companion at startup?</value>
   </data>
   <data name="V2_AllSet_On" xml:space="preserve">
     <value>On</value>
@@ -4032,7 +4032,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Chat surface overrides</value>
   </data>
   <data name="DiagnosticsPage_Expander_ChatOverrides.Description" xml:space="preserve">
-    <value>Per-surface override of the chat UI. Resets when OpenClaw restarts.</value>
+    <value>Per-surface override of the chat UI. Resets when DYNAM Windows Companion restarts.</value>
   </data>
   <data name="DiagnosticsPage_Card_HubChat.Header" xml:space="preserve">
     <value>Hub chat tab</value>
@@ -4044,7 +4044,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Back to Diagnostics</value>
   </data>
   <data name="SettingsRow_AutoStart_Description.Text" xml:space="preserve">
-    <value>Launch OpenClaw automatically when you sign in.</value>
+    <value>Launch DYNAM Windows Companion automatically when you sign in.</value>
   </data>
   <data name="SettingsRow_GlobalHotkey_Description.Text" xml:space="preserve">
     <value>Enable global hotkeys (Ctrl+Alt+Shift+V for voice, Ctrl+Alt+; for settings).</value>
@@ -4560,7 +4560,7 @@ Os comandos são bloqueados enquanto o sandboxing está indisponível porque o b
     <value>Acesso à câmera, ao microfone e à tela</value>
   </data>
   <data name="PermissionsPage_SystemLevelPrivacyPermissions.Text" xml:space="preserve">
-    <value>As permissões de privacidade em nível de sistema são gerenciadas pelo Windows. Abra as Configurações de Privacidade do Windows para conceder ou revogar o acesso do OpenClaw.</value>
+    <value>As permissões de privacidade em nível de sistema são gerenciadas pelo Windows. Abra as Configurações de Privacidade do Windows para conceder ou revogar o acesso do DYNAM Windows Companion.</value>
   </data>
   <data name="SandboxPage_NodeSandboxIsOn.Text" xml:space="preserve">
     <value>O sandbox do Node está ativado</value>
@@ -4959,7 +4959,7 @@ Os controles de arquivo, rede, área de transferência, tempo limite e aprovaç�
     <value>Instalação MSIX detectada</value>
   </data>
   <data name="SettingsPage_MSIXInstallationDetected.Message" xml:space="preserve">
-    <value>Remover o OpenClaw pelas Configurações do Windows &amp;#x2192; Aplicativos NÃO removerá o Gateway local (distro WSL, imagem de disco). Use Remover Gateway local abaixo PRIMEIRO e só depois desinstale o OpenClaw.</value>
+    <value>Remover o DYNAM Windows Companion pelas Configurações do Windows &amp;#x2192; Aplicativos NÃO removerá o Gateway local (distro WSL, imagem de disco). Use Remover Gateway local abaixo PRIMEIRO e só depois desinstale o DYNAM Windows Companion.</value>
   </data>
   <data name="SettingsPage_RemovesTheWSLDistro.Text" xml:space="preserve">
     <value>Remove a distro WSL (OpenClawGateway), sua imagem de disco, a entrada de inicialização automática, e apaga as credenciais do Gateway. Seu token MCP é preservado. A integração será reiniciada.</value>
@@ -6492,7 +6492,7 @@ Certifique-se de que o Gateway está em execução.</value>
     <value>nenhum Gateway configurado</value>
   </data>
   <data name="DebugPage_StatusConnectedFormat" xml:space="preserve">
-    <value>O OpenClaw está conectado a {0}.</value>
+    <value>O DYNAM Windows Companion está conectado a {0}.</value>
   </data>
   <data name="DebugPage_StatusConnectingFormat" xml:space="preserve">
     <value>Conectando a {0}…</value>
@@ -7170,4 +7170,34 @@ O binário wxc-exec não pôde ser localizado. {1} Se esta for uma build de dese
   <data name="VoiceSettingsPage_MiniMaxVoiceIdBox.Header" xml:space="preserve"><value>ID da voz</value></data>
   <data name="VoiceSettingsPage_MiniMaxVoiceIdBox.PlaceholderText" xml:space="preserve"><value>por exemplo, male-qn-qingse</value></data>
   <data name="VoiceSettingsPage_TtsMiniMax.Content" xml:space="preserve"><value>MiniMax (nuvem, requer chave da API)</value></data>
+  <data name="Onboarding_CodeOnly_Title.Text" xml:space="preserve"><value>Conectar o DYNAM Companion</value></data>
+  <data name="Onboarding_CodeOnly_Description.Text" xml:space="preserve"><value>Cole o código de configuração do seu agente DYNAM para conectar este PC.</value></data>
+  <data name="Onboarding_CodeOnly_CapabilitiesTitle.Text" xml:space="preserve"><value>Escolha o que este PC compartilha com seu agente</value></data>
+  <data name="Onboarding_CodeOnly_Canvas.Content" xml:space="preserve"><value>Ferramentas de aplicativos e da área de trabalho</value></data>
+  <data name="Onboarding_CodeOnly_SystemRun.Content" xml:space="preserve"><value>Executar comandos com aprovação local</value></data>
+  <data name="Onboarding_CodeOnly_Screen.Content" xml:space="preserve"><value>Acesso à tela</value></data>
+  <data name="Onboarding_CodeOnly_Camera.Content" xml:space="preserve"><value>Acesso à câmera</value></data>
+  <data name="Onboarding_CodeOnly_Location.Content" xml:space="preserve"><value>Acesso à localização</value></data>
+  <data name="Onboarding_CodeOnly_Tts.Content" xml:space="preserve"><value>Falar em voz alta</value></data>
+  <data name="Onboarding_CodeOnly_Stt.Content" xml:space="preserve"><value>Transcrever áudio</value></data>
+  <data name="Onboarding_CodeOnly_LocalModel.Content" xml:space="preserve"><value>Usar modelos Ollama locais</value></data>
+  <data name="Onboarding_CodeOnly_CaptureConsentNote.Text" xml:space="preserve"><value>Em um PC novo, tela, câmera e localização começam desativadas. Cada uso ainda pede sua aprovação local.</value></data>
+  <data name="Onboarding_CodeOnly_BrowserUnavailable.Text" xml:space="preserve"><value>O controle do navegador não está disponível nesta configuração.</value></data>
+  <data name="Onboarding_CodeOnly_Consent.Content" xml:space="preserve"><value>Aprovo estes recursos para este PC</value></data>
+  <data name="Onboarding_CodeOnly_ConsentRequired" xml:space="preserve"><value>Selecione os recursos locais e aprove-os antes de conectar.</value></data>
+  <data name="Onboarding_CodeOnly_SaveCapabilitiesFailed" xml:space="preserve"><value>Não foi possível salvar suas escolhas de recursos. Nada foi conectado.</value></data>
+  <data name="Onboarding_CodeOnly_Input.PlaceholderText" xml:space="preserve"><value>Cole o código de configuração</value></data>
+  <data name="Onboarding_CodeOnly_ConnectButton.Content" xml:space="preserve"><value>Conectar</value></data>
+  <data name="Onboarding_CodeOnly_ApprovalInstructions.Text" xml:space="preserve"><value>Aprove este dispositivo no seu gateway.</value></data>
+  <data name="Onboarding_CodeOnly_ContinueButton.Content" xml:space="preserve"><value>Abrir Companion</value></data>
+  <data name="Onboarding_CodeOnly_PrivacyNote.Text" xml:space="preserve"><value>Os códigos expiram e são usados apenas para conectar este PC.</value></data>
+  <data name="Onboarding_CodeOnly_Connecting" xml:space="preserve"><value>Conectando ao seu gateway…</value></data>
+  <data name="Onboarding_CodeOnly_WaitingForApproval" xml:space="preserve"><value>Aguardando aprovação. Informe o ID deste dispositivo ao seu agente ou administrador do gateway.</value></data>
+  <data name="Onboarding_CodeOnly_DeviceId" xml:space="preserve"><value>ID do dispositivo: {0}</value></data>
+  <data name="Onboarding_CodeOnly_DeviceIdUnavailable" xml:space="preserve"><value>ainda indisponível</value></data>
+  <data name="Onboarding_CodeOnly_Connected" xml:space="preserve"><value>Este PC está conectado ao seu gateway.</value></data>
+  <data name="Onboarding_CodeOnly_ExpiredCode" xml:space="preserve"><value>Este código expirou. Peça um novo ao seu agente.</value></data>
+  <data name="Onboarding_CodeOnly_UnsafeGateway" xml:space="preserve"><value>Este código não aponta para um gateway público seguro.</value></data>
+  <data name="Onboarding_CodeOnly_InvalidCode" xml:space="preserve"><value>Este código é inválido. Copie um novo código do seu agente DYNAM e tente novamente.</value></data>
+  <data name="Onboarding_CodeOnly_ConnectionFailed" xml:space="preserve"><value>Falha na conexão. Verifique o código ou tente novamente mais tarde.</value></data>
 </root>
