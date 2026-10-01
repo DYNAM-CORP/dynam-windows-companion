@@ -514,6 +514,12 @@ foreach ($token in @(
     Assert-Contains -Text $uiJob -Expected $token -Message "UI lane is missing '$token'."
 }
 
+Assert-Contains -Text $uiJob -Expected "timeout-minutes: 20" -Message "UI lane must bound runner time."
+Assert-Contains -Text $uiJob -Expected "-HangTimeout 3m" -Message "Tray UI tests must capture a bounded hang sequence."
+foreach ($hangToken in @('"console;verbosity=detailed"', '"--blame-hang-timeout"', '"--blame-hang-dump-type"', '"none"')) {
+    Assert-Contains -Text $runner -Expected $hangToken -Message "CI hang diagnostics are missing '$hangToken'."
+}
+
 $runnerUses = [regex]::Matches(
     $workflow,
     "(?m)^\s+\./scripts/Invoke-CiTest\.ps1\s*$").Count

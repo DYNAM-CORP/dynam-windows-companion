@@ -405,6 +405,7 @@ jobs:
     needs: [change-classification, fast-validation]
     if: ${{ !cancelled() && needs.change-classification.result == 'success' && needs.fast-validation.result == 'success' && needs.change-classification.outputs.ui_tests == 'true' }}
     runs-on: windows-latest
+    timeout-minutes: 20
     env:
       OPENCLAW_CI_COLLECT_COVERAGE: ${{ github.event_name != 'pull_request' }}
       OPENCLAW_REPO_ROOT: ${{ github.workspace }}
@@ -475,6 +476,7 @@ jobs:
         -Runtime win-x64
 
     - name: Run Tray UI Tests
+      timeout-minutes: 6
       run: >
         ./scripts/Invoke-CiTest.ps1
         -Project tests/OpenClaw.Tray.UITests
@@ -482,6 +484,7 @@ jobs:
         -TrxFileName OpenClaw.Tray.UITests.trx
         -Runtime win-x64
         -Filter Category!=Accessibility
+        -HangTimeout 3m
 
     # Accessibility Insights CI pass: scans each page in the real app process.
     - name: Run Accessibility Tests (Axe.Windows)
